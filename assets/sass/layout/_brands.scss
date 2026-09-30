@@ -1,0 +1,42 @@
+.brands {
+  .section-title {
+    text-align: center;
+    @include max(525px){
+        h2{
+            font-size: 18px;
+            padding-bottom: 0px;
+        }
+    }
+  }
+  padding-bottom: 20px;
+  .brand {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @include max(767px) {
+      flex-wrap: wrap;
+    }
+    &-item {
+      text-align: center;
+      flex: 0 0 20%;
+      a {
+        img {
+          transition: 0.3s all ease-in;
+          filter: grayscale(100%);
+          width: 100%;
+          @include max(525px){
+            width: 40%;
+          }
+        }
+        &:hover {
+          img {
+            filter: grayscale(0);
+          }
+        }
+      }
+      @include max(767px) {
+        flex: 0 0 50%;
+      }
+    }
+  }
+}

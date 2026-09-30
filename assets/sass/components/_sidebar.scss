@@ -1,0 +1,182 @@
+.sidebar{
+    background-color: #F7F7F7;
+    overflow: hidden;
+    padding: 16px;
+    position: fixed;
+    top: 20px;
+    bottom: 20px;
+    @include max(991px){
+        left: 0;
+        padding: 8px;
+    }
+    @include max(525px){
+        padding: 2px;
+        left: 0;
+    }
+    &-profile{
+        margin: 16px;
+        position: relative;
+        @include max(991px){
+            margin: 2px;
+        }
+        &__image{
+            width: 120px;
+            height: 120px;
+            
+            @include max(991px){
+                width: 32px;
+                height: 32px;
+                margin-top: 20px;
+                margin-bottom: 80px;
+                img{
+                    margin-top: 40px;
+                }
+            }
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            img{
+                width: 100%;
+            }
+            .mode-changer{
+                background: #EDEDED;
+                padding: 10px 11px;
+                border-radius: 100%;
+                position: absolute;
+                right: 0;
+                top: -10px;
+                z-index: 1000;
+                border: none;
+                @include max(991px){
+                    padding: 5px;
+                    #sun-svg, #moon-svg{
+                        width: 80%;
+                        margin: 0px auto;
+                    }
+                }
+                cursor: pointer;
+                #sun-svg{
+                    display: none;
+                }
+            }
+        }
+        &__name, &__designation{
+            text-align: center;
+            @include max(991px){
+                display: none;
+            }
+        }
+        &__name{
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 1.25;
+        }
+        &__designation{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 14px;
+            color: #707070;
+        }
+        &__social-media{
+            margin-bottom: 48px;
+            @include max(991px){
+                display: none;
+            }
+            ul{
+                text-align: center;
+                li{
+                    display: inline-block;
+                    margin: 0 8px;
+                    a{
+                        background: #707070;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &:hover{
+                                background: #0063F7;
+                        }
+                        i{
+                            color: #fff;
+                            font-size: 12px;
+                            border-radius: 50%;
+                            width: 100%;
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    &-menu{
+        margin-bottom: 80px;
+        ul{
+            li{
+                margin-bottom: 10px;
+                @include max(991px){
+                    margin: 30px 0;
+                }
+                &:hover, &:active, &:visited{
+                        a{
+                            span{
+                                color: #161616;
+                            }
+                            background-color: #EDEDED;
+                            i{
+                                color: #0063F7;
+                            }
+                        }
+                    }
+                a.active span{
+                    color: #161616;
+                }
+                a{
+                    padding: 6px 0px;
+                    display: flex;
+                    align-items: center;
+                    color: #707070;
+                    border-radius: 5px;
+                    @include max(991px){
+                        justify-content: center;
+                    }
+                    font-size: 16px;
+                    line-height: 20px;
+                    letter-spacing: -0.001em;
+
+                    span{
+                        color: #707070;
+                        @include max(991px){
+                            display: none;
+                        }
+                    }
+                    i{
+                        color: #707070;
+                        width: 16px;
+                        height: 16px;
+                        margin: 0px 12px;
+                    }
+                }
+            }
+        }
+    }
+    &-contact {
+        @include max(991px){
+            display: none;
+        }
+        p {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -0.001em;
+            color: #707070;
+            margin-bottom: 10px;
+        }
+        i {
+            color: #707070;
+            margin: 0px 12px;
+        }
+    }
+}
