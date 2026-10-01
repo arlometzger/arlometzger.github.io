@@ -15,12 +15,21 @@ The shared sidebar lives in `_includes/sidebar.html`. Each page passes the
 active navigation item and theme-toggle ID to that include. Update your name,
 tagline, phone, email, and LinkedIn/Instagram links in
 `assets/js/personal-info.js`; that file is loaded by every page with the sidebar.
+The sidebar and content pages share the homepage's wide container so the layout
+stays aligned across the site.
 Add portfolio entries to `assets/js/projects.js`. Each entry should have a
 `title`, a `category` (`Woodworking`, `Machining`, `3D modelling`, `Pottery`,
 or `Miscellaneous`), and an `image` path. An optional `url` can link to a
 project detail page. The portfolio page filters by the selected category, and
 the home page shows up to three photos per category. Gallery slots remain
 placeholders until project photos are added.
+Resume entries live in `assets/js/resume-data.js` and are rendered in Education,
+Experience, Skills order. Add a PDF to the repository and set `pdfUrl` in that
+file to show the resume download link. Add education entries with `institution`,
+`credential`, `dates`, `location`, and `description`; experience entries use
+`title`, `organization`, `dates`, `location`, and `description`. Skills are
+plain strings in the `skills` array. LinkedIn does not provide a reliable
+public profile-sync option for a static GitHub Pages site.
 
 ## Project structure
 

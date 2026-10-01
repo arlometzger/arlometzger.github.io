@@ -95,7 +95,7 @@
                         justify-content: center;
                         align-items: center;
                         &:hover{
-                                background: #0063F7;
+                            background: #0063F7;
                         }
                         i{
                             color: #fff;
@@ -103,17 +103,16 @@
                             border-radius: 50%;
                             width: 100%;
                         }
-                        
                     }
                 }
-                @include max(991px){
-                    margin: 0 0 24px;
-                    ul{
-                        display: grid;
-                        grid-template-columns: repeat(2, 24px);
-                        justify-content: center;
-                        gap: 8px;
-                    }
+            }
+            @include max(991px){
+                margin: 0 0 24px;
+                ul{
+                    display: grid;
+                    grid-template-columns: repeat(2, 24px);
+                    justify-content: center;
+                    gap: 8px;
                 }
             }
         }
