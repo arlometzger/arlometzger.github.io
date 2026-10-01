@@ -5,14 +5,15 @@ published to GitHub Pages.
 
 ## Pages
 
-- `index.html` redirects the site root to `home.html`.
-- `home.html` contains the home page.
+- `index.html` contains the home page.
 - `resume.html`, `portfolio.html`, `blog.html`, and `contact.html` are the main
   site sections.
 - `singleBlog.html` and `singlePortfolio.html` are detail-page examples.
 
 The shared sidebar lives in `_includes/sidebar.html`. Each page passes the
-active navigation item and theme-toggle ID to that include.
+active navigation item and theme-toggle ID to that include. Update your name,
+tagline, location, phone, email, and social links in
+`assets/js/personal-info.js`; that file is loaded by every page with the sidebar.
 
 ## Project structure
 
