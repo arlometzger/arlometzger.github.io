@@ -97,5 +97,35 @@
     margin: 0px auto;
     background-color: transparent;
     margin-top: 40px;
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
+.portfolio-card__placeholder {
+  display: flex;
+  min-height: 250px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: #ededed;
+  color: #707070;
+}
+
+.portfolio-empty-state {
+  grid-column: 1 / -1;
+  color: #707070;
+  line-height: 1.6;
+}
+
+body.dark-theme {
+  .portfolio-card__placeholder {
+    background: #202020;
+    color: #a9a9a9;
+  }
+
+  .portfolio-empty-state {
+    color: #a9a9a9;
   }
 }

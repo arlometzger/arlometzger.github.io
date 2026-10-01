@@ -6,3 +6,213 @@
 @import "../layout/cleintsGallery";
 @import "../layout/slider";
 @import "../layout/brands";
+
+.craft-home-container {
+  width: calc(100% - 32px);
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.craft-home {
+  padding: clamp(20px, 4vw, 56px);
+
+  &__hero {
+    padding: 16px 0 40px;
+    border-bottom: 1px solid #dedede;
+
+    h1 {
+      max-width: 850px;
+      margin: 8px 0 16px;
+      color: #161616;
+      font-size: clamp(36px, 5vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    > p:not(.craft-home__eyebrow) {
+      color: #707070;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  &__eyebrow {
+    color: #0063f7;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__about-link,
+  .craft-category__heading a {
+    color: #0063f7;
+    font-weight: 600;
+
+    i {
+      margin-left: 6px;
+      font-size: 13px;
+    }
+  }
+
+  &__about-link {
+    margin-top: 22px;
+  }
+}
+
+.craft-intro {
+  max-width: 900px;
+  padding: 34px 0 40px;
+
+  h2 {
+    margin-bottom: 10px;
+    color: #161616;
+    font-size: 24px;
+  }
+
+  p {
+    color: #707070;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+}
+
+.craft-category {
+  padding: 30px 0 36px;
+  border-top: 1px solid #dedede;
+
+  &__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+
+    h2 {
+      color: #161616;
+      font-size: 28px;
+    }
+
+    a {
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+.craft-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  &__item {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+
+  &__placeholder {
+    display: flex;
+    min-height: 180px;
+    aspect-ratio: 4 / 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px dashed #bdbdbd;
+    border-radius: 8px;
+    background: #ededed;
+    color: #707070;
+    text-align: center;
+
+    i {
+      font-size: 28px;
+    }
+
+    span {
+      font-size: 13px;
+    }
+  }
+}
+
+.about-page {
+  max-width: 900px;
+  padding: clamp(24px, 5vw, 64px);
+
+  h1 {
+    margin-bottom: 24px;
+    color: #161616;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1;
+  }
+
+  p {
+    margin-bottom: 18px;
+    color: #707070;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+body.dark-theme {
+  .craft-home__hero h1,
+  .craft-intro h2,
+  .craft-category__heading h2,
+  .about-page h1 {
+    color: #f7f7f7;
+  }
+
+  .craft-home__hero,
+  .craft-category {
+    border-color: #434343;
+  }
+
+  .craft-home__hero > p:not(.craft-home__eyebrow),
+  .craft-intro p,
+  .about-page p {
+    color: #a9a9a9;
+  }
+
+  .craft-gallery__placeholder {
+    background: #202020;
+    border-color: #555;
+    color: #a9a9a9;
+  }
+}
+
+@media (max-width: 767px) {
+  .craft-home-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .craft-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    &__placeholder {
+      min-height: 130px;
+    }
+  }
+}
+
+@media (max-width: 535px) {
+  .craft-category__heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

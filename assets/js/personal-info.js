@@ -1,14 +1,11 @@
 window.personalInfo = {
     name: "Arlo Metzger",
-    designation: "Projects, Experience, and Interests",
-    location: "Brooklyn, New York",
+    designation: "Woodworking, machining & more",
     phone: "(718) 316-0360",
     email: "arlometzger1@gmail.com",
     socialMedia: {
-        facebook: "#",
-        linkedin: "#",
-        pinterest: "#",
-        twitter: "#"
+        linkedin: "",
+        instagram: ""
     }
 };
 
@@ -21,20 +18,10 @@ function populatePersonalInfo() {
     document.querySelectorAll("[data-personal-designation]").forEach((element) => {
         element.textContent = info.designation;
     });
-    document.querySelectorAll("[data-personal-location]").forEach((element) => {
-        element.textContent = info.location;
-    });
-    document.querySelectorAll("[data-personal-phone]").forEach((element) => {
-        element.textContent = info.phone;
-    });
-    document.querySelectorAll("[data-personal-email]").forEach((element) => {
-        element.textContent = info.email;
-    });
-
     document.querySelectorAll("[data-personal-social]").forEach((link) => {
         const url = info.socialMedia[link.dataset.personalSocial];
         if (!url || url === "#") {
-            link.closest("li").style.display = "none";
+            link.closest("li").hidden = true;
             return;
         }
         link.href = url;
@@ -44,6 +31,9 @@ function populatePersonalInfo() {
 
     document.querySelectorAll("[data-personal-phone-link]").forEach((link) => {
         link.href = `tel:${info.phone.replace(/[^\d+]/g, "")}`;
+    });
+    document.querySelectorAll("[data-personal-email-link]").forEach((link) => {
+        link.href = `mailto:${info.email}`;
     });
 }
 

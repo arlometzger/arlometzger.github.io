@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Card | Portfolio</title>
+    <title>Arlo Metzger | Portfolio</title>
     <!-- cdn font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
@@ -23,26 +23,19 @@
                 </div>
                 <div class="col-lg-9 col-md-11 col-10">
                     <div class="main-bar">
-                        <!-- Portfolio Section -->
-                    <div class="title-tab-wrapper">
-                        <h2 class="page-title">Portfolio</h2>
-                        <ul class="tab" id="portfolio-tab">
-                            <li><a class="tab-item" onclick="tab('Images')" >Images</a></li>
-                            <li><a class="tab-item" onclick="tab('Web Design')" >Web Design</a></li>
-                            <li><a class="tab-item" onclick="tab('Potrait')" >Potraits</a></li>
-                            <li><a class="tab-item" onclick="tab('Mobile App')" >Mobile App</a></li>
-                        </ul>
-                    </div>
-                    <div id="portfolio">
-                        
-                    </div>
-                    <div id="portfolioTabImages"></div>
-                    <div id="portfolioTabPotrait"></div>
-                    <div id="portfolioTabWebDesign"></div>
-                    <div id="portfolioTabMobileApp"></div>
-                    <button id="load-more-btn">
-                        Load More    
-                    </button>
+                        <div class="title-tab-wrapper">
+                            <h2 class="page-title">Portfolio</h2>
+                            <ul class="tab" id="portfolio-tab" aria-label="Filter projects by craft">
+                                <li><a class="tab-item" href="portfolio.html">All projects</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=Woodworking">Woodworking</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=Machining">Machining</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=3D%20modelling">3D modelling</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=Pottery">Pottery</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=Miscellaneous">Miscellaneous</a></li>
+                            </ul>
+                        </div>
+                        <div id="portfolio" aria-live="polite"></div>
+                        <button id="load-more-btn" type="button">Load more</button>
                     </div>
                 </div>
             </div>
@@ -51,6 +44,7 @@
     </div>
 
     <script src="assets/js/personal-info.js"></script>
+    <script src="assets/js/projects.js"></script>
     <script src="./assets/js/portfolio.js"></script>
     <script src="./assets/js/app.js"></script>
     <!-- mode switcher javascript code -->

@@ -4,61 +4,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arlo Metzger | Portfolio</title>
-    <!-- cdn font-awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  />
+    <meta name="description" content="Woodworking, machining, 3D modeling, pottery, and other handmade projects by Arlo Metzger.">
+    <title>Arlo Metzger | Craft Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <div class="main-wrapper">
-        <div class="container-xxl">
+        <div class="craft-home-container">
             <div class="row">
-                <div class="col-2 col-md-1 col-lg-3 ">
+                <div class="col-2 col-md-1 col-lg-3">
                     {% include sidebar.html active="home" toggle_id="mode-changer" %}
                 </div>
                 <div class="col-10 col-md-11 col-lg-9">
-                    <main class="main-bar">
-                        <section class="hero section-padding">
-                            <div class="row">
-                                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                    <div class="hero-content ">
-                                        <h1>Hello, I'm <span data-personal-name>Arlo Metzger</span></h1>
-                                        <p data-personal-designation>Projects, Experience, and Interests</p>
-                                        <div class="hero-content__btn">
-                                            <a href="" class="download__btn btn_primary"><span><img src="assets/images/icon/download.png" alt=""></span> <span>Download CV</span></a>
-                                            <a href="" class="btn_primary">Hire me</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6 col-lg-6 col-xl-6 ">
-                                    <div class="hero-img">
-                                        <img src="assets/images/img/hero-section-person.png" alt="hero">
-                                    </div>
-                                </div>
-                            </div>
+                    <main class="main-bar craft-home">
+                        <header class="craft-home__hero">
+                            <p class="craft-home__eyebrow">Projects &amp; process</p>
+                            <h1>Made by hand, built with curiosity.</h1>
+                            <p>Woodworking, machining, 3D modelling, pottery, and the crafts in between.</p>
+                            <a class="craft-home__about-link" href="about.html">A little about me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </header>
+
+                        <section class="craft-intro" aria-labelledby="craft-intro-title">
+                            <h2 id="craft-intro-title">A hands-on practice</h2>
+                            <p>I enjoy turning ideas into useful, well-crafted objects. My projects bring together traditional shop skills, digital design, and experimentation. This is where I share what I make and what I learn along the way.</p>
                         </section>
 
-                        <section class="about section-padding">
-                            <div class="row">
-                                <div class="col-12 col-md-6 col-xl-6">
-                                    <div class="about-img">
-                                        <img src="assets/images/img/about-me-person.png" alt="person">
-                                    </div>
+                        <div class="craft-categories">
+                            <section class="craft-category" id="woodworking" aria-labelledby="woodworking-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="woodworking-title">Woodworking</h2>
+                                    <a href="portfolio.html?category=Woodworking">Explore woodworking <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="col-12 col-md-6 col-xl-6">
-                                    <div class="section-title">
-                                        <h2>About me</h2>
-                                    </div>
-                                    <div class="about-content">
-                                        <p class="mb-4">In quam neque dapibus elementum. Volutpat, orci, enim sed in sit mus aliquet vulputate ullamcorper. Tempus orci tortor luctus convallis vitae, amet eget viverra. Tempor in nunc a etiam massa adipiscing tellus ut penatibus.</p>
-                                        <p>Aliquam scelerisque aliquet ante volutpat sit. In at dui sagittis diam imperdiet. Arcu dui suspendisse malesuada viverra mattis tellus a at. Nulla integer faucibus massa nibh. Porttitor amet adipiscing mauris id diam neque tincidunt nunc.</p>
-                                    </div>
+                                <div class="craft-gallery" data-project-gallery="Woodworking" aria-label="Woodworking project gallery"></div>
+                            </section>
+
+                            <section class="craft-category" id="machining" aria-labelledby="machining-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="machining-title">Machining</h2>
+                                    <a href="portfolio.html?category=Machining">Explore machining <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                            </div>
-                        </section>
+                                <div class="craft-gallery" data-project-gallery="Machining" aria-label="Machining project gallery"></div>
+                            </section>
+
+                            <section class="craft-category" id="3d-modelling" aria-labelledby="modelling-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="modelling-title">3D modelling</h2>
+                                    <a href="portfolio.html?category=3D%20modelling">Explore 3D modelling <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="craft-gallery" data-project-gallery="3D modelling" aria-label="3D modelling project gallery"></div>
+                            </section>
+
+                            <section class="craft-category" id="pottery" aria-labelledby="pottery-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="pottery-title">Pottery</h2>
+                                    <a href="portfolio.html?category=Pottery">Explore pottery <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="craft-gallery" data-project-gallery="Pottery" aria-label="Pottery project gallery"></div>
+                            </section>
+
+                            <section class="craft-category" id="miscellaneous" aria-labelledby="miscellaneous-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="miscellaneous-title">Miscellaneous</h2>
+                                    <a href="portfolio.html?category=Miscellaneous">Explore other projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="craft-gallery" data-project-gallery="Miscellaneous" aria-label="Miscellaneous project gallery"></div>
+                            </section>
+                        </div>
 
                         <section class="service section-padding">
                             <div class="row">
@@ -112,21 +126,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ">
+                            <div class="row">
                                 <div class="service-history">
-                                    <div class="service-history-card ">
+                                    <div class="service-history-card">
                                         <h2 class="complete">312</h2>
                                         <p>Project Complete</p>
                                     </div>
-                                    <div class="service-history-card ">
+                                    <div class="service-history-card">
                                         <h2 class="years">312</h2>
                                         <p>Years of Experience</p>
                                     </div>
-                                    <div class="service-history-card ">
+                                    <div class="service-history-card">
                                         <h2 class="clients">312</h2>
                                         <p>Happy Clients</p>
                                     </div>
-                                    <div class="service-history-card ">
+                                    <div class="service-history-card">
                                         <h2 class="award">312</h2>
                                         <p>Award won</p>
                                     </div>
@@ -314,49 +328,10 @@
             </div>
         </div>
     </div>
-
     <script src="assets/js/personal-info.js"></script>
+    <script src="assets/js/projects.js"></script>
+    <script src="assets/js/home-gallery.js"></script>
     <script src="assets/js/app.js"></script>
-    <script>
-        var toggleIcon = document.getElementById('mode-changer');
-
-        toggleIcon.onclick = () => {
-            let local_storage_mode = localStorage.getItem('mode')
-            if (local_storage_mode === 'dark') {
-                localStorage.setItem('mode', 'light');
-                document.body.classList.toggle("dark-theme");
-            } else {
-                localStorage.setItem('mode', 'dark');
-                document.body.classList.toggle("dark-theme");
-            }
-
-            if (document.body.classList.contains("dark-theme")) {
-                document.getElementById('moon-svg').style.display = "none"
-                document.getElementById('sun-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#434343"
-            } else {
-                document.getElementById('sun-svg').style.display = "none"
-                document.getElementById('moon-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#EDEDED"
-            }
-        };
-
-        let local_storage_mode = localStorage.getItem('mode')
-        if (local_storage_mode === 'dark') {
-            document.body.classList.add("dark-theme");
-        } else {
-            document.body.classList.remove("dark-theme");
-        }
-
-        if (document.body.classList.contains("dark-theme")) {
-            document.getElementById('moon-svg').style.display = "none"
-            document.getElementById('sun-svg').style.display = "block"
-            document.getElementById('mode-changer').style.background = "#434343"
-        } else {
-            document.getElementById('sun-svg').style.display = "none"
-            document.getElementById('moon-svg').style.display = "block"
-            document.getElementById('mode-changer').style.background = "#EDEDED"
-        }
-    </script>
+    <script src="assets/js/mode-switcher.js"></script>
 </body>
 </html>

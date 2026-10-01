@@ -1,189 +1,84 @@
-function loadPosts() {
-    fetch("https://rakib0101.github.io/blog_json/v-card-portfolio.json")
-        .then((res) => res.json())
-        .then((data) => {
-            displayPosts(data);
-        });
-}
+const projectList = document.getElementById("portfolio");
+const loadMoreButton = document.getElementById("load-more-btn");
+const projectsPerPage = 6;
+const categories = ["Woodworking", "Machining", "3D modelling", "Pottery", "Miscellaneous"];
+const requestedCategory = new URLSearchParams(window.location.search).get("category");
+const activeCategory = categories.includes(requestedCategory) ? requestedCategory : "";
+let visibleProjectCount = projectsPerPage;
 
-function displayPosts(posts) {
-    console.log(posts);
-    const slicePosts = posts.slice(0, 6);
-    const portfolio = document.getElementById("portfolio");
-    for (const post of slicePosts) {
-        const div = document.createElement("div");
-        div.classList.add("portfolio-card");
-        div.innerHTML = `
-            <div class="portfolio-card__feature-image">
-                <a href="singlePortfolio.html"><img src=${post.portfolio_feature_img} /></a>
-            </div>
-            <div class="portfolio-card__meta">
-                <p>${post.portfolio_category}</p>
-            </div>
-            <h2 class="portfolio-card__title"><a href="singlePortfolio.html">${post.portfolio_title}</a></h2>
-            <a class="portfolio-card__btn " href="singlePortfolio.html">View Project  <i class="fa-solid fa-arrow-right"></i></a>
-        `;
-        portfolio.appendChild(div);
-    }
-}
-loadPosts();
+function createProjectCard(project) {
+    const card = document.createElement("article");
+    card.className = "portfolio-card";
 
-const loadMore = document.getElementById("load-more-btn");
+    const imageContainer = document.createElement("div");
+    imageContainer.className = "portfolio-card__feature-image";
+    const projectLink = document.createElement("a");
+    projectLink.href = project.url || "singlePortfolio.html";
 
-function loadDuePosts(e) {
-    e.preventDefault();
-    fetch("https://rakib0101.github.io/blog_json/v-card-portfolio.json")
-        .then((res) => res.json())
-        .then((data) => {
-            displayDuePosts(data);
-            loadMore.style.display = "none";
-        });
-}
-
-function displayDuePosts(posts) {
-    const slicePosts = posts.slice(0, 6);
-    const portfolio = document.getElementById("portfolio");
-    for (const post of slicePosts) {
-        const div = document.createElement("div");
-        div.classList.add("portfolio-card");
-        div.innerHTML = `
-            <div class="portfolio-card__feature-image">
-                <a href="singlePortfolio.html"><img src=${post.portfolio_feature_img} /></a>
-            </div>
-            <div class="portfolio-card__meta">
-                <p>${post.portfolio_category}</p>
-            </div>
-            <h2 class="portfolio-card__title"><a href="singlePortfolio.html">${post.portfolio_title}</a></h2>
-            <a class="portfolio-card__btn " href="singlePortfolio.html">View Project  <i class="fa-solid fa-arrow-right"></i></a>
-        `;
-        portfolio.appendChild(div);
-    }
-}
-
-loadMore.addEventListener("click", loadDuePosts);
-
-
-// tab script
-
-function tab(category) {
-    fetch("https://rakib0101.github.io/blog_json/v-card-portfolio.json")
-        .then((res) => res.json())
-        .then((data) => {
-            const filterData = data.filter((d) => d.portfolio_category === category);
-            displayTabPosts(filterData);
-        });
-}
-
-function displayTabPosts(posts) {
-    document.getElementById("portfolio").style.display = "none";
-    const portfolioTabImages = document.getElementById("portfolioTabImages");
-    const portfolioTabPotrait = document.getElementById("portfolioTabPotrait");
-    const portfolioTabWebDesign = document.getElementById("portfolioTabWebDesign");
-    const portfolioTabMobileApp = document.getElementById("portfolioTabMobileApp");
-    for (const post of posts) {
-        if (post.portfolio_category === 'Images') {
-            document.getElementById("portfolioTabImages").style.display = "grid";
-            document.getElementById("portfolioTabPotrait").style.display = "none";
-            document.getElementById("portfolioTabMobileApp").style.display = 'none';
-            document.getElementById("portfolioTabWebDesign").style.display = "none";
-            const div = document.createElement("div");
-            div.innerHTML = `
-            <div class="portfolio-card__feature-image">
-                <a href="singlePortfolio.html"><img src=${post.portfolio_feature_img} /></a>
-            </div>
-            <div class="portfolio-card__meta">
-                <p>${post.portfolio_category}</p>
-            </div>
-            <h2 class="portfolio-card__title"><a href="singlePortfolio.html">${post.portfolio_title}</a></h2>
-            <a class="portfolio-card__btn " href="singlePortfolio.html">View Project  <i class="fa-solid fa-arrow-right"></i></a>
-        `;
-
-            portfolioTabImages.appendChild(div);
-        }
-        if (post.portfolio_category === "Potrait") {
-            document.getElementById("portfolioTabPotrait").style.display =
-                "grid";
-             document.getElementById("portfolioTabWebDesign").style.display =
-                 "none";
-             document.getElementById("portfolioTabMobileApp").style.display =
-                 "none";
-             document.getElementById("portfolioTabImages").style.display =
-                 "none";
-            const div = document.createElement("div");
-            div.classList.add("portfolio-card");
-            div.innerHTML = `
-            <div class="portfolio-card__feature-image">
-                <a href="singlePortfolio.html"><img src=${post.portfolio_feature_img} /></a>
-            </div>
-            <div class="portfolio-card__meta">
-                <p>${post.portfolio_category}</p>
-            </div>
-            <h2 class="portfolio-card__title"><a href="singlePortfolio.html">${post.portfolio_title}</a></h2>
-            <a class="portfolio-card__btn " href="singlePortfolio.html">View Project  <i class="fa-solid fa-arrow-right"></i></a>
-        `;
-
-            portfolioTabPotrait.appendChild(div);
-        }
-        if (post.portfolio_category === "Web Design") {
-            document.getElementById("portfolioTabWebDesign").style.display =
-                "grid";
-             document.getElementById("portfolioTabImages").style.display =
-                 "none";
-             document.getElementById("portfolioTabMobileApp").style.display =
-                 "none";
-             document.getElementById("portfolioTabPotrait").style.display =
-                 "none";
-            const div = document.createElement("div");
-            div.classList.add("portfolio-card");
-            div.innerHTML = `
-            <div class="portfolio-card__feature-image">
-                <a href="singlePortfolio.html"><img src=${post.portfolio_feature_img} /></a>
-            </div>
-            <div class="portfolio-card__meta">
-                <p>${post.portfolio_category}</p>
-            </div>
-            <h2 class="portfolio-card__title"><a href="singlePortfolio.html">${post.portfolio_title}</a></h2>
-            <a class="portfolio-card__btn " href="singlePortfolio.html">View Project  <i class="fa-solid fa-arrow-right"></i></a>
-        `;
-
-            portfolioTabWebDesign.appendChild(div);
-        }
-        if (post.portfolio_category === "Mobile App") {
-            document.getElementById("portfolioTabMobileApp").style.display =
-                "grid";
-             document.getElementById("portfolioTabWebDesign").style.display =
-                 "none";
-             document.getElementById("portfolioTabImages").style.display =
-                 "none";
-             document.getElementById("portfolioTabPotrait").style.display =
-                 "none";
-            const div = document.createElement("div");
-            div.classList.add("portfolio-card");
-            div.innerHTML = `
-            <div class="portfolio-card__feature-image">
-                <a href="singlePortfolio.html"><img src=${post.portfolio_feature_img} /></a>
-            </div>
-            <div class="portfolio-card__meta">
-                <p>${post.portfolio_category}</p>
-            </div>
-            <h2 class="portfolio-card__title"><a href="singlePortfolio.html">${post.portfolio_title}</a></h2>
-            <a class="portfolio-card__btn " href="singlePortfolio.html">View Project  <i class="fa-solid fa-arrow-right"></i></a>
-        `;
-            portfolioTabMobileApp.appendChild(div);
-        }
-        
+    if (project.image) {
+        const image = document.createElement("img");
+        image.src = project.image;
+        image.alt = project.title;
+        projectLink.appendChild(image);
+    } else {
+        const placeholder = document.createElement("span");
+        placeholder.className = "portfolio-card__placeholder";
+        placeholder.textContent = "Add a project photo";
+        projectLink.appendChild(placeholder);
     }
 
+    imageContainer.appendChild(projectLink);
+    card.appendChild(imageContainer);
+
+    const category = document.createElement("p");
+    category.className = "portfolio-card__meta";
+    category.textContent = project.category;
+    card.appendChild(category);
+
+    const title = document.createElement("h2");
+    title.className = "portfolio-card__title";
+    const titleLink = document.createElement("a");
+    titleLink.href = project.url || "singlePortfolio.html";
+    titleLink.textContent = project.title;
+    title.appendChild(titleLink);
+    card.appendChild(title);
+
+    return card;
 }
 
+function renderProjects() {
+    const projects = Array.isArray(window.projects) ? window.projects : [];
+    const filteredProjects = activeCategory
+        ? projects.filter((project) => project.category === activeCategory)
+        : projects;
+    const visibleProjects = filteredProjects.slice(0, visibleProjectCount);
 
-// Add active class to the current button (highlight it)
-var portTab = document.getElementById("portfolio-tab");
-var items = portTab.getElementsByClassName("tab-item");
-for (var i = 0; i < items.length; i++) {
-  items[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace("active", "");
-  this.className += " active";
-  });
+    projectList.replaceChildren();
+    if (visibleProjects.length === 0) {
+        const message = document.createElement("p");
+        message.className = "portfolio-empty-state";
+        message.textContent = activeCategory
+            ? `No ${activeCategory} projects yet.`
+            : "No projects yet. Add your work in assets/js/projects.js.";
+        projectList.appendChild(message);
+    } else {
+        visibleProjects.forEach((project) => projectList.appendChild(createProjectCard(project)));
+    }
+
+    loadMoreButton.hidden = visibleProjects.length >= filteredProjects.length;
 }
+
+document.querySelectorAll("#portfolio-tab .tab-item").forEach((link) => {
+    const linkCategory = new URL(link.href).searchParams.get("category") || "";
+    if (linkCategory === activeCategory) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+    }
+});
+
+loadMoreButton.addEventListener("click", () => {
+    visibleProjectCount += projectsPerPage;
+    renderProjects();
+});
+
+renderProjects();

@@ -66,6 +66,13 @@ img {
   padding: 40px 0;
 }
 
+@media (min-width: 1200px) {
+  .container-xl,
+  .container-xxl {
+    max-width: 1650px;
+  }
+}
+
 a.active {
   color: #000;
   background-color: #ededed;

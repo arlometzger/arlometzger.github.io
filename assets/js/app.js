@@ -16,6 +16,9 @@ function showSlides(n) {
     var i;
     var slidesImage = document.getElementsByClassName("mySlide");
     var slidesText = document.getElementsByClassName("mySlideText");
+    if (!slidesImage.length || !slidesText.length) {
+        return;
+    }
     if (n > slidesImage.length) {
         slideImgIndex = 1;
         slideTextIndex = 1;

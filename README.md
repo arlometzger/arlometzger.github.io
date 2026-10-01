@@ -6,14 +6,21 @@ published to GitHub Pages.
 ## Pages
 
 - `index.html` contains the home page.
+- `about.html` introduces the maker and their craft interests.
 - `resume.html`, `portfolio.html`, `blog.html`, and `contact.html` are the main
   site sections.
 - `singleBlog.html` and `singlePortfolio.html` are detail-page examples.
 
 The shared sidebar lives in `_includes/sidebar.html`. Each page passes the
 active navigation item and theme-toggle ID to that include. Update your name,
-tagline, location, phone, email, and social links in
+tagline, phone, email, and LinkedIn/Instagram links in
 `assets/js/personal-info.js`; that file is loaded by every page with the sidebar.
+Add portfolio entries to `assets/js/projects.js`. Each entry should have a
+`title`, a `category` (`Woodworking`, `Machining`, `3D modelling`, `Pottery`,
+or `Miscellaneous`), and an `image` path. An optional `url` can link to a
+project detail page. The portfolio page filters by the selected category, and
+the home page shows up to three photos per category. Gallery slots remain
+placeholders until project photos are added.
 
 ## Project structure
 
