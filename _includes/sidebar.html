@@ -1,0 +1,42 @@
+<header class="sidebar">
+    <div class="sidebar-profile">
+        <div class="sidebar-profile__image">
+            <img src="assets/images/img/sidebar-person.png" alt="">
+            <button id="{{ include.toggle_id }}" class="mode-changer">
+                <img id="moon-svg" src="assets/images/icon/moon.svg" width="18" height="18" alt="">
+                <img id="sun-svg" src="assets/images/icon/sun.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+        <h2 class="sidebar-profile__name">Arlo Metzger</h2>
+        <p class="sidebar-profile__designation">Projects, Experience, and Interests</p>
+        <div class="sidebar-profile__social-media">
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <nav class="sidebar-menu">
+        <ul>
+            <li class="menu-item"><a href="home.html" class="{% if include.active == 'home' %}active{% endif %}"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+            <li class="menu-item"><a href="resume.html" class="{% if include.active == 'resume' %}active{% endif %}"><i class="fa-solid fa-id-card-clip"></i><span>Resume</span></a></li>
+            <li class="menu-item"><a href="portfolio.html" class="{% if include.active == 'portfolio' %}active{% endif %}"><i class="fa-solid fa-briefcase"></i><span>Portfolio</span></a></li>
+            <li class="menu-item"><a href="blog.html" class="{% if include.active == 'blog' %}active{% endif %}"><i class="fa-brands fa-blogger-b"></i><span>Blogs</span></a></li>
+            <li class="menu-item"><a href="contact.html" class="{% if include.active == 'contact' %}active{% endif %}"><i class="fa-solid fa-table-list"></i><span>Contact</span></a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-contact">
+        <p class="sidebar-contact__address">
+            <i class="fa-solid fa-location-arrow"></i><span>Brooklyn, New York</span>
+        </p>
+        <p class="sidebar-conatct__phone">
+            <i class="fa-solid fa-phone"></i><span>(718) 316-0360</span>
+        </p>
+        <p class="sidebar-contact__email">
+            <i class="fa-regular fa-envelope"></i><span>arlometzger1@gmail.com</span>
+        </p>
+    </div>
+</header>

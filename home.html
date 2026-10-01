@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,63 +19,7 @@
             <div class="row">
                 <div class="col-2 col-md-1 col-lg-3 ">
                     <!-- Sidebar Menu -->
-                    <header class="sidebar">
-                        <div class="sidebar-profile">
-                            <div class="sidebar-profile__image">
-                                <img src="assets/images/img/sidebar-person.png" alt="">
-                                <button id="mode-changer" class="mode-changer">
-                                    <svg id="moon-svg" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.6179 12.071C13.7745 12.3738 14.974 12.4512 16.1519 12.3038C15.7564 13.1576 15.2095 13.9368 14.5344 14.6022C13.5545 15.568 12.3386 16.2603 11.0079 16.61C9.67716 16.9596 8.27805 16.9546 6.9499 16.5953C5.62174 16.2359 4.41091 15.5349 3.438 14.562C2.4651 13.5891 1.76407 12.3783 1.40475 11.0501C1.04543 9.72196 1.04036 8.32284 1.39004 6.99212C1.73973 5.66139 2.43196 4.44551 3.39779 3.46558C4.06316 2.79049 4.84238 2.24362 5.69619 1.84807C5.54883 3.02598 5.62624 4.22554 5.92898 5.38214C6.34993 6.99039 7.19137 8.45761 8.36688 9.63312C9.54239 10.8086 11.0096 11.6501 12.6179 12.071Z" stroke="#707070" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>  
-                                        <svg id="sun-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 17.625C15.1066 17.625 17.625 15.1066 17.625 12C17.625 8.8934 15.1066 6.375 12 6.375C8.8934 6.375 6.375 8.8934 6.375 12C6.375 15.1066 8.8934 17.625 12 17.625Z" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M12 3.375V1.5" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M5.89689 5.89707L4.57501 4.5752" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M3.375 12H1.5" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M5.89689 18.103L4.57501 19.4249" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M12 20.625V22.5" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M18.1031 18.103L19.425 19.4249" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M20.625 12H22.5" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M18.1031 5.89707L19.425 4.5752" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                                                                  
-                                </button>
-                                                                       
-                            </div>
-                            <h2 class="sidebar-profile__name">Arlo Metzger</h2>
-                            <p class="sidebar-profile__designation">Projects, Experience, and Interests</p>
-                            <div class="sidebar-profile__social-media">
-                                <ul>
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <nav class="sidebar-menu">
-                            <ul>
-                                <li class="menu-item"><a href="index.html" class="active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-                                <li class="menu-item"><a href="resume.html"><i class="fa-solid fa-id-card-clip"></i><span>Resume</span></a></li>
-                                <li class="menu-item"><a href="portfolio.html"><i class="fa-solid fa-briefcase"></i><span>Portfolio</span></a></li>
-                                <li class="menu-item"><a href="blog.html"><i class="fa-brands fa-blogger-b"></i><span>Blogs</span></a></li>
-                                <li class="menu-item"><a href="contact.html"><i class="fa-solid fa-table-list"></i><span>Contact</span></a></li>
-                            </ul>
-
-                        </nav>
-                        <div class="sidebar-contact">
-                            <p class="sidebar-contact__address">
-                                <i class="fa-solid fa-location-arrow"></i><span>Brooklyn, New York</span>
-                            </p>
-                            <p class="sidebar-conatct__phone">
-                                <i class="fa-solid fa-phone"></i><span>(718) 316-0360</span>
-                            </p>
-                            <p class="sidebar-contact__email">
-                                <i class="fa-regular fa-envelope"></i><span>arlometzger1@gmail.com</span>
-                            </p>
-                        </div>
-                    </header>
+                    {% include sidebar.html active="home" toggle_id="mode-changer" %}
                 </div>
                 <div class="col-10 col-md-11 col-lg-9">
                     <!-- Main Content -->
