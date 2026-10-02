@@ -15,16 +15,20 @@ WORD_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 SECTIONS = {"education", "experience", "skills"}
 
 
-def paragraph_text(paragraph):
-    text = []
+def paragraph_fields(paragraph):
+    fields = [""]
     for node in paragraph.iter():
         if node.tag == f"{WORD_NS}t":
-            text.append(node.text or "")
+            fields[-1] += node.text or ""
         elif node.tag == f"{WORD_NS}tab":
-            text.append(" ")
+            fields.append("")
         elif node.tag == f"{WORD_NS}br":
-            text.append("\n")
-    return "".join(text).strip()
+            fields.append("")
+    return [field.strip() for field in fields if field.strip()]
+
+
+def paragraph_text(paragraph):
+    return " ".join(paragraph_fields(paragraph))
 
 
 def paragraph_style(paragraph):
@@ -56,11 +60,12 @@ def extract_resume(docx_path):
     seen_sections = set()
 
     for paragraph in document.iter(f"{WORD_NS}p"):
-        text = paragraph_text(paragraph)
-        if not text:
+        fields = paragraph_fields(paragraph)
+        if not fields:
             continue
 
         level = heading_level(paragraph_style(paragraph))
+        text = " ".join(fields)
         normalized_text = text.lower()
         if level == 1 and normalized_text in SECTIONS:
             section = normalized_text
@@ -69,15 +74,27 @@ def extract_resume(docx_path):
             continue
 
         if section == "skills":
-            resume["skills"].append(text)
+            resume["skills"].extend(fields)
             continue
 
         if section in {"education", "experience"} and level == 2:
             key = "institution" if section == "education" else "title"
-            current_entry = {key: text, "details": []}
+            current_entry = {
+                key: fields[0],
+                "location": fields[-1] if len(fields) > 1 else "",
+                "subtitle": "",
+                "dates": "",
+                "details": [],
+            }
             resume[section].append(current_entry)
         elif section in {"education", "experience"} and current_entry is not None:
-            current_entry["details"].append(text)
+            if not current_entry["subtitle"]:
+                current_entry["subtitle"] = fields[0]
+                if len(fields) > 1:
+                    current_entry["dates"] = fields[-1]
+                    current_entry["details"].extend(fields[1:-1])
+            else:
+                current_entry["details"].extend(fields)
 
     missing_sections = SECTIONS - seen_sections
     if missing_sections:
@@ -129,14 +146,23 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, required=True, help="Source DOCX resume")
     parser.add_argument("--data-output", type=Path, required=True, help="Generated JS data file")
-    parser.add_argument("--pdf-output", type=Path, required=True, help="Generated PDF path")
+    parser.add_argument("--pdf-output", type=Path, help="Generated PDF path")
+    parser.add_argument(
+        "--data-only",
+        action="store_true",
+        help="Generate website data without converting the document to PDF",
+    )
     args = parser.parse_args()
 
     if not args.input.is_file():
         parser.error(f"Source DOCX does not exist: {args.input}")
+    if not args.data_only and not args.pdf_output:
+        parser.error("--pdf-output is required unless --data-only is set")
 
     resume = extract_resume(args.input)
-    resume["pdfUrl"] = args.pdf_output.name
+    resume["pdfUrl"] = (
+        args.pdf_output.name if args.pdf_output else "ArloMetzgerResume.pdf"
+    )
     args.data_output.parent.mkdir(parents=True, exist_ok=True)
     args.data_output.write_text(
         "window.resumeData = "
@@ -144,7 +170,8 @@ def main():
         + ";\n",
         encoding="utf-8",
     )
-    make_pdf(args.input, args.pdf_output)
+    if not args.data_only:
+        make_pdf(args.input, args.pdf_output)
 
 
 if __name__ == "__main__":

@@ -19,8 +19,14 @@ def make_paragraph(text, style=""):
             f"{{{WORD_NS}}}pStyle",
             {f"{{{WORD_NS}}}val": style},
         )
-    run = ElementTree.SubElement(paragraph, f"{{{WORD_NS}}}r")
-    ElementTree.SubElement(run, f"{{{WORD_NS}}}t").text = text
+    segments = text.split("\t")
+    for index, segment in enumerate(segments):
+        if segment:
+            run = ElementTree.SubElement(paragraph, f"{{{WORD_NS}}}r")
+            ElementTree.SubElement(run, f"{{{WORD_NS}}}t").text = segment
+        if index < len(segments) - 1:
+            run = ElementTree.SubElement(paragraph, f"{{{WORD_NS}}}r")
+            ElementTree.SubElement(run, f"{{{WORD_NS}}}tab")
     return paragraph
 
 
@@ -59,16 +65,61 @@ class BuildResumeTests(unittest.TestCase):
                 "education": [
                     {
                         "institution": "Example University",
-                        "details": ["Bachelor of Example Studies"],
+                        "location": "",
+                        "subtitle": "Bachelor of Example Studies",
+                        "dates": "",
+                        "details": [],
                     }
                 ],
                 "experience": [
                     {
                         "title": "Example Maker",
-                        "details": ["Example Workshop · 2024-present"],
+                        "location": "",
+                        "subtitle": "Example Workshop · 2024-present",
+                        "dates": "",
+                        "details": [],
                     }
                 ],
                 "skills": ["Woodworking", "Machining"],
+            },
+        )
+
+    def test_splits_tab_aligned_location_and_dates(self):
+        paragraphs = [
+            make_paragraph("Education", "Heading1"),
+            make_paragraph("Example University\t\tSpringfield, IL", "Heading2"),
+            make_paragraph("Bachelor of Science\t\t2020 - 2024"),
+            make_paragraph("Experience", "Heading1"),
+            make_paragraph("Example Workshop\t\tPortland, OR", "Heading2"),
+            make_paragraph("Project Maker\t\t2024 - Present"),
+            make_paragraph("Designed and built custom furniture"),
+            make_paragraph("Skills", "Heading1"),
+            make_paragraph("Woodworking"),
+        ]
+
+        with tempfile.TemporaryDirectory() as directory:
+            docx_path = Path(directory) / "resume.docx"
+            make_docx(docx_path, paragraphs)
+            resume = extract_resume(docx_path)
+
+        self.assertEqual(
+            resume["education"][0],
+            {
+                "institution": "Example University",
+                "location": "Springfield, IL",
+                "subtitle": "Bachelor of Science",
+                "dates": "2020 - 2024",
+                "details": [],
+            },
+        )
+        self.assertEqual(
+            resume["experience"][0],
+            {
+                "title": "Example Workshop",
+                "location": "Portland, OR",
+                "subtitle": "Project Maker",
+                "dates": "2024 - Present",
+                "details": ["Designed and built custom furniture"],
             },
         )
 

@@ -2150,11 +2150,25 @@ body.dark-theme .portfolio-empty-state {
   color: #161616;
   font-size: 18px;
 }
+.resume-entry__location {
+  margin-bottom: 8px;
+  color: #707070;
+  font-size: 14px;
+  line-height: 1.5;
+}
 .resume-entry__metadata {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
   margin-bottom: 8px;
   color: #0063f7;
   font-size: 14px;
   line-height: 1.5;
+}
+.resume-entry__metadata span:last-child:not(:first-child) {
+  margin-left: auto;
+  text-align: right;
 }
 .resume-entry__description {
   color: #707070;
@@ -2190,6 +2204,7 @@ body.dark-theme .resume-entry {
   border-color: #434343;
 }
 body.dark-theme .resume-entry__description,
+body.dark-theme .resume-entry__location,
 body.dark-theme .resume-empty-state {
   color: #a9a9a9;
 }

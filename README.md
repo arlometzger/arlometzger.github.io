@@ -26,11 +26,13 @@ placeholders until project photos are added.
 Use `ArloMetzgerResume.docx` as the resume source. Export the Google Doc as
 Microsoft Word (.docx), then structure it with Heading 1 sections named
 `Education`, `Experience`, and `Skills`. Use Heading 2 for each school or role;
-paragraphs beneath it become the entry details. Put each skill on its own
-paragraph or bullet under Skills. GitHub Actions extracts those sections into
-the website and converts the same DOCX to `ArloMetzgerResume.pdf` using
-LibreOffice. No browser plugin or external resume service is required. The
-existing PDF remains the published download until the DOCX source is added.
+put the school/company and location in separate tab-delimited cells on that
+heading line. On the next body line, put the degree/position and dates in
+separate tab-delimited cells. Further paragraphs beneath the entry become its
+description. Put each skill on its own paragraph or bullet under Skills.
+GitHub Actions extracts those sections into the website and converts the same
+DOCX to `ArloMetzgerResume.pdf` using LibreOffice. No browser plugin or
+external resume service is required.
 
 ## Project structure
 

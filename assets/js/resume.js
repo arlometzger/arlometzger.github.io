@@ -6,18 +6,35 @@ function appendResumeEntry(container, entry, type) {
     heading.textContent = type === "education" ? entry.institution : entry.title;
     article.appendChild(heading);
 
-    if (Array.isArray(entry.details) && entry.details.length > 0) {
+    if (entry.location) {
+        const location = document.createElement("p");
+        location.className = "resume-entry__location";
+        location.textContent = entry.location;
+        article.appendChild(location);
+    }
+
+    if (entry.subtitle || entry.dates) {
         const metadata = document.createElement("p");
         metadata.className = "resume-entry__metadata";
-        metadata.textContent = entry.details[0];
+        if (entry.subtitle) {
+            const subtitle = document.createElement("span");
+            subtitle.textContent = entry.subtitle;
+            metadata.appendChild(subtitle);
+        }
+        if (entry.dates) {
+            const dates = document.createElement("span");
+            dates.textContent = entry.dates;
+            metadata.appendChild(dates);
+        }
         article.appendChild(metadata);
-        entry.details.slice(1).forEach((detail) => {
-            const description = document.createElement("p");
-            description.className = "resume-entry__description";
-            description.textContent = detail;
-            article.appendChild(description);
-        });
     }
+
+    (entry.details || []).forEach((detail) => {
+        const description = document.createElement("p");
+        description.className = "resume-entry__description";
+        description.textContent = detail;
+        article.appendChild(description);
+    });
 
     container.appendChild(article);
 }
