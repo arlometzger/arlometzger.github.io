@@ -42,14 +42,14 @@ jobs:
             --input ArloMetzgerResume.docx \
             --data-output assets/js/resume-data.js \
             --pdf-output "$RUNNER_TEMP/ArloMetzgerResume.pdf"
+      - name: Stage generated resume PDF for Jekyll
+        if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
+        run: cp "$RUNNER_TEMP/ArloMetzgerResume.pdf" ./ArloMetzgerResume.pdf
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
-      - name: Add generated resume PDF to site
-        if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
-        run: cp "$RUNNER_TEMP/ArloMetzgerResume.pdf" ./_site/ArloMetzgerResume.pdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
