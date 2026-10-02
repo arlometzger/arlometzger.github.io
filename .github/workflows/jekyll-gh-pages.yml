@@ -30,11 +30,26 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Install LibreOffice for resume PDF generation
+        if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y libreoffice-writer
+      - name: Build resume data and PDF from DOCX
+        if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
+        run: |
+          python3 scripts/build_resume.py \
+            --input ArloMetzgerResume.docx \
+            --data-output assets/js/resume-data.js \
+            --pdf-output "$RUNNER_TEMP/ArloMetzgerResume.pdf"
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
+      - name: Add generated resume PDF to site
+        if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
+        run: cp "$RUNNER_TEMP/ArloMetzgerResume.pdf" ./_site/ArloMetzgerResume.pdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 

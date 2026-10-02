@@ -6,20 +6,17 @@ function appendResumeEntry(container, entry, type) {
     heading.textContent = type === "education" ? entry.institution : entry.title;
     article.appendChild(heading);
 
-    const details = [type === "education" ? entry.credential : entry.organization, entry.dates, entry.location]
-        .filter(Boolean);
-    if (details.length > 0) {
+    if (Array.isArray(entry.details) && entry.details.length > 0) {
         const metadata = document.createElement("p");
         metadata.className = "resume-entry__metadata";
-        metadata.textContent = details.join(" · ");
+        metadata.textContent = entry.details[0];
         article.appendChild(metadata);
-    }
-
-    if (entry.description) {
-        const description = document.createElement("p");
-        description.className = "resume-entry__description";
-        description.textContent = entry.description;
-        article.appendChild(description);
+        entry.details.slice(1).forEach((detail) => {
+            const description = document.createElement("p");
+            description.className = "resume-entry__description";
+            description.textContent = detail;
+            article.appendChild(description);
+        });
     }
 
     container.appendChild(article);
@@ -30,7 +27,7 @@ function renderResumeSection(containerId, entries, type) {
     if (!Array.isArray(entries) || entries.length === 0) {
         const emptyState = document.createElement("p");
         emptyState.className = "resume-empty-state";
-        emptyState.textContent = `Add ${type} details to assets/js/resume-data.js.`;
+        emptyState.textContent = `Add ${type} details to ArloMetzgerResume.docx.`;
         container.appendChild(emptyState);
         return;
     }
@@ -52,7 +49,7 @@ if (Array.isArray(resumeData.skills) && resumeData.skills.length > 0) {
 } else {
     const emptyState = document.createElement("li");
     emptyState.className = "resume-empty-state";
-    emptyState.textContent = "Add skills to assets/js/resume-data.js.";
+    emptyState.textContent = "Add skills to ArloMetzgerResume.docx.";
     skillsList.appendChild(emptyState);
 }
 

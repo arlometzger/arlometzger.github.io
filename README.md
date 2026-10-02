@@ -23,13 +23,14 @@ or `Miscellaneous`), and an `image` path. An optional `url` can link to a
 project detail page. The portfolio page filters by the selected category, and
 the home page shows up to three photos per category. Gallery slots remain
 placeholders until project photos are added.
-Resume entries live in `assets/js/resume-data.js` and are rendered in Education,
-Experience, Skills order. Add a PDF to the repository and set `pdfUrl` in that
-file to show the resume download link. Add education entries with `institution`,
-`credential`, `dates`, `location`, and `description`; experience entries use
-`title`, `organization`, `dates`, `location`, and `description`. Skills are
-plain strings in the `skills` array. LinkedIn does not provide a reliable
-public profile-sync option for a static GitHub Pages site.
+Use `ArloMetzgerResume.docx` as the resume source. Export the Google Doc as
+Microsoft Word (.docx), then structure it with Heading 1 sections named
+`Education`, `Experience`, and `Skills`. Use Heading 2 for each school or role;
+paragraphs beneath it become the entry details. Put each skill on its own
+paragraph or bullet under Skills. GitHub Actions extracts those sections into
+the website and converts the same DOCX to `ArloMetzgerResume.pdf` using
+LibreOffice. No browser plugin or external resume service is required. The
+existing PDF remains the published download until the DOCX source is added.
 
 ## Project structure
 
