@@ -3,6 +3,7 @@
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -13,6 +14,154 @@ from xml.etree import ElementTree
 
 WORD_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 SECTIONS = {"education", "experience", "skills"}
+
+
+def normalize_document_xml(document_xml):
+    page_size = re.search(r"<w:pgSz\b([^>]*)>", document_xml)
+    page_margins = re.search(r"<w:pgMar\b([^>]*)>", document_xml)
+    if not page_size or not page_margins:
+        raise ValueError("Could not determine DOCX page width and margins.")
+
+    page_width = re.search(r'\bw:w="(\d+)"', page_size.group(1))
+    left_margin = re.search(r'\bw:left="(\d+)"', page_margins.group(1))
+    right_margin = re.search(r'\bw:right="(\d+)"', page_margins.group(1))
+    if not page_width or not left_margin or not right_margin:
+        raise ValueError("Could not determine DOCX page width and margins.")
+
+    tab_position = (
+        int(page_width.group(1))
+        - int(left_margin.group(1))
+        - int(right_margin.group(1))
+    )
+    if tab_position <= 0:
+        raise ValueError("DOCX page margins leave no room for a right-aligned tab.")
+    tab_stop = f'<w:tab w:val="right" w:pos="{tab_position}"/>'
+
+    def normalize_paragraph(match):
+        paragraph = match.group(0)
+        if "<w:tab" not in paragraph:
+            return paragraph
+
+        paragraph = re.sub(r"(?:<w:tab\b[^>]*/>){2,}", "<w:tab/>", paragraph)
+        paragraph = re.sub(
+            r'(<w:tab\b[^>]*/>)(<w:t\b[^>]*>)[ \t]+',
+            r"\1\2",
+            paragraph,
+            count=1,
+        )
+
+        tabs = re.search(r"<w:tabs\b[^>]*>.*?</w:tabs>", paragraph, re.DOTALL)
+        if tabs:
+            existing_stops = re.sub(
+                r'<w:tab\b(?=[^>]*\bw:val="right")[^>]*/>',
+                "",
+                tabs.group(0),
+            )
+            paragraph = (
+                paragraph[: tabs.start()]
+                + existing_stops.replace("</w:tabs>", tab_stop + "</w:tabs>")
+                + paragraph[tabs.end() :]
+            )
+        else:
+            properties = re.search(
+                r"<w:pPr\b[^>]*>.*?</w:pPr>",
+                paragraph,
+                re.DOTALL,
+            )
+            if properties:
+                paragraph_properties = properties.group(0)
+                run_properties = re.search(r"<w:rPr\b", paragraph_properties)
+                insertion_point = (
+                    run_properties.start()
+                    if run_properties
+                    else paragraph_properties.rfind("</w:pPr>")
+                )
+                updated_properties = (
+                    paragraph_properties[:insertion_point]
+                    + f"<w:tabs>{tab_stop}</w:tabs>"
+                    + paragraph_properties[insertion_point:]
+                )
+                paragraph = (
+                    paragraph[: properties.start()]
+                    + updated_properties
+                    + paragraph[properties.end() :]
+                )
+            else:
+                paragraph = re.sub(
+                    r"(<w:p\b[^>]*>)",
+                    rf"\1<w:pPr><w:tabs>{tab_stop}</w:tabs></w:pPr>",
+                    paragraph,
+                    count=1,
+                )
+        return paragraph
+
+    return re.sub(
+        r"<w:p\b[^>]*>.*?</w:p>",
+        normalize_paragraph,
+        document_xml,
+        flags=re.DOTALL,
+    )
+
+
+def normalize_numbering_xml(numbering_xml):
+    def normalize_bullet_level(match):
+        level = match.group(0)
+        if not re.search(r'<w:numFmt\b[^>]*\bw:val="bullet"', level):
+            return level
+
+        level = re.sub(
+            r'(<w:lvlText\b[^>]*\bw:val=")[^"]*(")',
+            r"\1•\2",
+            level,
+            count=1,
+        )
+        bullet_font = (
+            '<w:rFonts w:ascii="Liberation Sans" w:hAnsi="Liberation Sans" '
+            'w:eastAsia="Liberation Sans" w:cs="Liberation Sans"/>'
+        )
+        run_properties = re.search(
+            r"<w:rPr\b[^>]*>.*?</w:rPr>",
+            level,
+            re.DOTALL,
+        )
+        if run_properties:
+            fonts = re.search(r"<w:rFonts\b[^>]*/>", run_properties.group(0))
+            if fonts:
+                updated = run_properties.group(0).replace(
+                    fonts.group(0),
+                    bullet_font,
+                    1,
+                )
+            else:
+                updated = run_properties.group(0).replace(
+                    ">",
+                    ">" + bullet_font,
+                    1,
+                )
+            level = level[: run_properties.start()] + updated + level[run_properties.end() :]
+        else:
+            level = level.replace("</w:lvl>", f"<w:rPr>{bullet_font}</w:rPr></w:lvl>", 1)
+        return level
+
+    return re.sub(
+        r"<w:lvl\b[^>]*>.*?</w:lvl>",
+        normalize_bullet_level,
+        numbering_xml,
+        flags=re.DOTALL,
+    )
+
+
+def prepare_pdf_docx(docx_path, pdf_docx_path):
+    with zipfile.ZipFile(docx_path) as source, zipfile.ZipFile(
+        pdf_docx_path, "w", zipfile.ZIP_DEFLATED
+    ) as destination:
+        for item in source.infolist():
+            content = source.read(item.filename)
+            if item.filename == "word/document.xml":
+                content = normalize_document_xml(content.decode("utf-8")).encode("utf-8")
+            elif item.filename == "word/numbering.xml":
+                content = normalize_numbering_xml(content.decode("utf-8")).encode("utf-8")
+            destination.writestr(item, content)
 
 
 def paragraph_fields(paragraph):
@@ -119,6 +268,8 @@ def make_pdf(docx_path, pdf_path):
         raise RuntimeError("LibreOffice is required to convert the DOCX resume to PDF.")
 
     with tempfile.TemporaryDirectory() as output_directory:
+        pdf_docx_path = Path(output_directory) / docx_path.name
+        prepare_pdf_docx(docx_path, pdf_docx_path)
         result = subprocess.run(
             [
                 converter,
@@ -127,7 +278,7 @@ def make_pdf(docx_path, pdf_path):
                 "pdf",
                 "--outdir",
                 output_directory,
-                str(docx_path.resolve()),
+                str(pdf_docx_path.resolve()),
             ],
             check=False,
             capture_output=True,

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Card | Conatct</title>
+    <title>Arlo Metzger | Contact</title>
     <!-- cdn font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
@@ -24,28 +24,20 @@
                 <div class="col-10 col-md-11 col-lg-9">
                     <div class="main-bar">
                         <section class="contact">
+                            <header class="page-heading contact-title">
+                                <p class="page-eyebrow">Say hello</p>
+                                <h1 class="page-title">Contact</h1>
+                                <p>Have a question or project in mind? Send me a message.</p>
+                            </header>
                         <div class="row">
-                            <div class="contact-title">
-                                <h2>Contact</h2>
-                                <p>Please the fill the form and you team will reach you in 24 hours</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <div class="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d142543.57284638577!2d90.34928576871451!3d23.780777744581084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e1!3m2!1sen!2sbd!4v1659539281902!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <!-- <div id="map"></div> -->
-                                    <!-- <img src="assets/images/img/map.png" alt="contact"> -->
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-8">
                                 <div class="contact-form">
                                     <form action="">
                                         <input type="text" name="" id="" placeholder="First Name">
                                         <input type="text" name="" id="" placeholder="Last Name">
                                         <input type="email" name="" id="" placeholder="Email">
                                         <input type="number" name="" id="" placeholder="Phone Number">
-                                        <input type="text" name="" id="" placeholder="What you need">
+                                        <input type="text" name="" id="" placeholder="Subject">
                                         <textarea name="" id="" cols="30" rows="10" placeholder="Write us a message"></textarea>
                                         <div class="contact-form-btn">
                                             <a href="" class="btn_primary">Send Message</a>
@@ -62,48 +54,6 @@
     </div>
     <script src="assets/js/personal-info.js"></script>
     <script src="assets/js/app.js"></script>
-    <!-- mode switcher javascript code -->
-    <script>
-        var toggleIconContact = document.getElementById('mode-changer-contact');
-
-        toggleIconContact.onclick= () =>{
-            console.log("clicked");
-            let local_storage_mode = localStorage.getItem('mode')
-            console.log(local_storage_mode)
-            if(local_storage_mode === 'dark'){
-                localStorage.setItem('mode', 'light');
-                document.body.classList.toggle("dark-theme");
-            }else{
-                localStorage.setItem('mode', 'dark');
-                document.body.classList.toggle("dark-theme");
-                console.log('else')
-            }
-            if (document.body.classList.contains("dark-theme")) {
-                document.getElementById('moon-svg').style.display = "none"
-                document.getElementById('sun-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#434343"
-            }else{
-                document.getElementById('sun-svg').style.display = "none"
-                document.getElementById('moon-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#EDEDED"
-            }
-        };
-        let local_storage_mode = localStorage.getItem('mode')
-        if(local_storage_mode === 'dark'){
-            document.body.classList.add("dark-theme");
-            console.log('Hi Dark Theme')
-        }else{
-            document.body.classList.remove("dark-theme");
-        }
-        if (document.body.classList.contains("dark-theme")) {
-                document.getElementById('moon-svg').style.display = "none"
-                document.getElementById('sun-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#434343"
-            }else{
-                document.getElementById('sun-svg').style.display = "none"
-                document.getElementById('moon-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#EDEDED"
-            }
-    </script>
+    <script src="assets/js/mode-switcher.js"></script>
 </body>
 </html>

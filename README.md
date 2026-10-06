@@ -32,7 +32,9 @@ separate tab-delimited cells. Further paragraphs beneath the entry become its
 description. Put each skill on its own paragraph or bullet under Skills.
 GitHub Actions extracts those sections into the website and converts the same
 DOCX to `ArloMetzgerResume.pdf` using LibreOffice. No browser plugin or
-external resume service is required.
+external resume service is required. Experience descriptions render as bullets
+on the website. For the PDF, the build normalizes tab alignment and bullet
+fonts in a temporary DOCX copy; the source document remains unchanged.
 
 ## Project structure
 

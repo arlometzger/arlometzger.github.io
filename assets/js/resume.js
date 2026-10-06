@@ -29,12 +29,24 @@ function appendResumeEntry(container, entry, type) {
         article.appendChild(metadata);
     }
 
-    (entry.details || []).forEach((detail) => {
-        const description = document.createElement("p");
-        description.className = "resume-entry__description";
-        description.textContent = detail;
-        article.appendChild(description);
-    });
+    const details = entry.details || [];
+    if (type === "experience" && details.length > 0) {
+        const list = document.createElement("ul");
+        list.className = "resume-entry__details";
+        details.forEach((detail) => {
+            const item = document.createElement("li");
+            item.textContent = detail;
+            list.appendChild(item);
+        });
+        article.appendChild(list);
+    } else {
+        details.forEach((detail) => {
+            const description = document.createElement("p");
+            description.className = "resume-entry__description";
+            description.textContent = detail;
+            article.appendChild(description);
+        });
+    }
 
     container.appendChild(article);
 }

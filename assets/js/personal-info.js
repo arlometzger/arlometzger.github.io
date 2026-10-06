@@ -4,8 +4,8 @@ window.personalInfo = {
     phone: "(718) 316-0360",
     email: "arlometzger1@gmail.com",
     socialMedia: {
-        linkedin: "",
-        instagram: ""
+        linkedin: "https://www.linkedin.com/in/arlo-metzger/",
+        instagram: "https://www.instagram.com/rlometzger/?hl=en"
     }
 };
 

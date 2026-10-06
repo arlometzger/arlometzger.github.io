@@ -15,10 +15,10 @@
 }
 
 .craft-home {
-  padding: clamp(20px, 4vw, 56px);
+  padding: clamp(24px, 4vw, 56px);
 
   &__hero {
-    padding: 16px 0 40px;
+    padding: 0 0 40px;
     border-bottom: 1px solid #dedede;
 
     h1 {
@@ -37,15 +37,8 @@
     }
   }
 
-  &__eyebrow {
-    color: #0063f7;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
   &__about-link,
+  &__portfolio-link a,
   .craft-category__heading a {
     color: #0063f7;
     font-weight: 600;
@@ -58,6 +51,14 @@
 
   &__about-link {
     margin-top: 22px;
+  }
+
+  &__portfolio-link {
+    padding: 0 0 14px;
+
+    a {
+      font-size: 15px;
+    }
   }
 }
 
@@ -150,16 +151,8 @@
 
 .about-page {
   max-width: 900px;
-  padding: clamp(24px, 5vw, 64px);
 
-  h1 {
-    margin-bottom: 24px;
-    color: #161616;
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.1;
-  }
-
-  p {
+  p:not(.page-eyebrow) {
     margin-bottom: 18px;
     color: #707070;
     font-size: 18px;
@@ -170,8 +163,7 @@
 body.dark-theme {
   .craft-home__hero h1,
   .craft-intro h2,
-  .craft-category__heading h2,
-  .about-page h1 {
+  .craft-category__heading h2 {
     color: #f7f7f7;
   }
 
@@ -182,7 +174,7 @@ body.dark-theme {
 
   .craft-home__hero > p:not(.craft-home__eyebrow),
   .craft-intro p,
-  .about-page p {
+  .about-page p:not(.page-eyebrow) {
     color: #a9a9a9;
   }
 
@@ -196,7 +188,7 @@ body.dark-theme {
 @media (max-width: 767px) {
   .craft-home-container {
     width: 100%;
-    padding: 0;
+    padding: 0 12px;
   }
 
   .craft-gallery {

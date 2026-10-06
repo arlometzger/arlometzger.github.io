@@ -1,20 +1,13 @@
 .contact {
   background-color: #f7f7f7;
   &-title {
-    width: 400px;
-    h2 {
-      padding: 0 40px 10px 0;
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 40px;
-      letter-spacing: -0.02em;
-      color: #161616;
-    }
-    p {
+    max-width: 600px;
+    width: 100%;
+
+    p:not(.page-eyebrow) {
       font-size: 16px;
       line-height: 24px;
       color: #707070;
-      padding-bottom: 40px;
     }
   }
   &-map {
@@ -52,14 +45,6 @@
       .btn_primary {
         padding: 14px 25px;
       }
-    }
-    @include max(991px) {
-      margin-top: 50px;
-      width: 80%;
-    }
-    @include max(767px) {
-      margin-top: 50px;
-      width: 100%;
     }
   }
 }

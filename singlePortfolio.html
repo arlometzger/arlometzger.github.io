@@ -24,7 +24,10 @@
                 <div class="col-lg-9 col-md-11 col-10">
                     <div class="main-bar">
                         <!-- Single Portfolio Section -->
-                    <h2 class="page-title">Portfolio</h2>
+                    <header class="page-heading">
+                        <p class="page-eyebrow">Selected projects</p>
+                        <h1 class="page-title">Portfolio</h1>
+                    </header>
                     <div class="single-portfolio">
                         <div class="single-portfolio__feature-image">
                             <img src="assets/images/img/single-portfolio-1.png" alt="">
@@ -106,48 +109,6 @@
     </div>
 
     <script src="assets/js/personal-info.js"></script>
-    <!-- mode switcher javascript code -->
-    <script>
-        var toggleIcon = document.getElementById('mode-changer-singlePortfolio');
-
-        toggleIcon.onclick= () =>{
-            console.log("clicked");
-            let local_storage_mode = localStorage.getItem('mode')
-            console.log(local_storage_mode)
-            if(local_storage_mode === 'dark'){
-                localStorage.setItem('mode', 'light');
-                document.body.classList.toggle("dark-theme");
-            }else{
-                localStorage.setItem('mode', 'dark');
-                document.body.classList.toggle("dark-theme");
-                console.log('else')
-            }
-            if (document.body.classList.contains("dark-theme")) {
-                document.getElementById('moon-svg').style.display = "none"
-                document.getElementById('sun-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#434343"
-            }else{
-                document.getElementById('sun-svg').style.display = "none"
-                document.getElementById('moon-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#EDEDED"
-            }
-        };
-        let local_storage_mode = localStorage.getItem('mode')
-        if(local_storage_mode === 'dark'){
-            document.body.classList.add("dark-theme");
-            console.log('Hi Dark Theme')
-        }else{
-            document.body.classList.remove("dark-theme");
-        }
-        if (document.body.classList.contains("dark-theme")) {
-                document.getElementById('moon-svg').style.display = "none"
-                document.getElementById('sun-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#434343"
-            }else{
-                document.getElementById('sun-svg').style.display = "none"
-                document.getElementById('moon-svg').style.display = "block"
-                document.getElementById('mode-changer').style.background = "#EDEDED"
-            }
-    </script>
+    <script src="assets/js/mode-switcher.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ jobs:
         if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
         run: |
           sudo apt-get update
-          sudo apt-get install --no-install-recommends -y libreoffice-writer
+          sudo apt-get install --no-install-recommends -y libreoffice-writer fonts-liberation
       - name: Build resume data and PDF from DOCX
         if: ${{ hashFiles('ArloMetzgerResume.docx') != '' }}
         run: |

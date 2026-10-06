@@ -3,9 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
+
+    .page-heading {
+      margin-bottom: 0;
+    }
+
     @include max(767px) {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
     .tab {
       @include max(767px) {

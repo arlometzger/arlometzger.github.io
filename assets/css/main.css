@@ -41,7 +41,23 @@ img {
 }
 
 .page-title {
-  margin-bottom: 48px;
+  margin: 0 0 clamp(28px, 4vw, 48px);
+  color: #161616;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.page-eyebrow {
+  margin-bottom: 8px;
+  color: #0063f7;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.page-heading {
+  margin-bottom: clamp(28px, 4vw, 44px);
 }
 
 .section-title {
@@ -66,13 +82,8 @@ img {
 
 .main-bar {
   background: #f7f7f7;
-  padding: 40px;
+  padding: clamp(24px, 4vw, 56px);
   margin-top: 20px;
-}
-@media (max-width: 767px) {
-  .main-bar {
-    padding: 10px;
-  }
 }
 
 .section-padding {
@@ -203,6 +214,9 @@ body.dark-theme .institution-info p {
 }
 
 body.dark-theme .page-title {
+  color: #F7F7F7;
+}
+body.dark-theme .page-heading h1 {
   color: #F7F7F7;
 }
 
@@ -343,10 +357,7 @@ body.dark-theme .more-blogs-title {
 body.dark-theme .contact {
   background: #2D2D2D;
 }
-body.dark-theme .contact-title h2 {
-  color: #F7F7F7;
-}
-body.dark-theme .contact-title p {
+body.dark-theme .contact-title p:not(.page-eyebrow) {
   color: #8D8D8D;
 }
 
@@ -1399,10 +1410,13 @@ body.dark-theme .contact-title p {
   justify-content: space-between;
   align-items: start;
 }
+.main-bar .title-tab-wrapper .page-heading {
+  margin-bottom: 0;
+}
 @media (max-width: 767px) {
   .main-bar .title-tab-wrapper {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 @media (max-width: 767px) {
@@ -1621,21 +1635,13 @@ body.dark-theme .contact-title p {
   background-color: #f7f7f7;
 }
 .contact-title {
-  width: 400px;
+  width: 100%;
+  max-width: 600px;
 }
-.contact-title h2 {
-  padding: 0 40px 10px 0;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-  letter-spacing: -0.02em;
-  color: #161616;
-}
-.contact-title p {
+.contact-title p:not(.page-eyebrow) {
   font-size: 16px;
   line-height: 24px;
   color: #707070;
-  padding-bottom: 40px;
 }
 .contact-map {
   width: 100%;
@@ -1688,19 +1694,6 @@ body.dark-theme .contact-title p {
 .contact-form-btn .btn_primary {
   padding: 14px 25px;
 }
-@media (max-width: 991px) {
-  .contact-form {
-    margin-top: 50px;
-    width: 80%;
-  }
-}
-@media (max-width: 767px) {
-  .contact-form {
-    margin-top: 50px;
-    width: 100%;
-  }
-}
-
 input[type=text],
 input[type=email],
 input[type=number],
@@ -1904,10 +1897,10 @@ textarea:focus {
   padding: 0 12px;
 }
 .craft-home {
-  padding: clamp(20px, 4vw, 56px);
+  padding: clamp(24px, 4vw, 56px);
 }
 .craft-home__hero {
-  padding: 16px 0 40px;
+  padding: 0 0 40px;
   border-bottom: 1px solid #dedede;
 }
 .craft-home__hero h1 {
@@ -1923,14 +1916,8 @@ textarea:focus {
   font-size: 20px;
   line-height: 1.5;
 }
-.craft-home__eyebrow {
-  color: #0063f7;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 .craft-home__about-link,
+.craft-home__portfolio-link a,
 .craft-home .craft-category__heading a {
   color: #0063f7;
   font-weight: 600;
@@ -1942,6 +1929,12 @@ textarea:focus {
 }
 .craft-home__about-link {
   margin-top: 22px;
+}
+.craft-home__portfolio-link {
+  padding: 0 0 14px;
+}
+.craft-home__portfolio-link a {
+  font-size: 15px;
 }
 .craft-intro {
   max-width: 900px;
@@ -2024,15 +2017,8 @@ textarea:focus {
 }
 .about-page {
   max-width: 900px;
-  padding: clamp(24px, 5vw, 64px);
 }
-.about-page h1 {
-  margin-bottom: 24px;
-  color: #161616;
-  font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.1;
-}
-.about-page p {
+.about-page p:not(.page-eyebrow) {
   margin-bottom: 18px;
   color: #707070;
   font-size: 18px;
@@ -2040,8 +2026,7 @@ textarea:focus {
 }
 body.dark-theme .craft-home__hero h1,
 body.dark-theme .craft-intro h2,
-body.dark-theme .craft-category__heading h2,
-body.dark-theme .about-page h1 {
+body.dark-theme .craft-category__heading h2 {
   color: #f7f7f7;
 }
 body.dark-theme .craft-home__hero,
@@ -2050,7 +2035,7 @@ body.dark-theme .craft-category {
 }
 body.dark-theme .craft-home__hero > p:not(.craft-home__eyebrow),
 body.dark-theme .craft-intro p,
-body.dark-theme .about-page p {
+body.dark-theme .about-page p:not(.page-eyebrow) {
   color: #a9a9a9;
 }
 body.dark-theme .craft-gallery__placeholder {
@@ -2091,7 +2076,7 @@ body.dark-theme .portfolio-empty-state {
 @media (max-width: 767px) {
   .craft-home-container {
     width: 100%;
-    padding: 0;
+    padding: 0 12px;
   }
   .craft-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2121,7 +2106,9 @@ body.dark-theme .portfolio-empty-state {
 }
 .resume-page__header h1 {
   color: #161616;
-  font-size: 36px;
+}
+.resume-page__header .page-title {
+  margin-bottom: 0;
 }
 .resume-page__header .resume-download[hidden] {
   display: none;
@@ -2175,6 +2162,19 @@ body.dark-theme .portfolio-empty-state {
   font-size: 15px;
   line-height: 1.6;
 }
+.resume-entry__details {
+  margin: 0;
+  padding-left: 20px;
+  color: #707070;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.resume-entry__details li {
+  margin-bottom: 6px;
+}
+.resume-entry__details li::marker {
+  color: #0063f7;
+}
 .resume-skills {
   display: flex;
   flex-wrap: wrap;
@@ -2204,6 +2204,7 @@ body.dark-theme .resume-entry {
   border-color: #434343;
 }
 body.dark-theme .resume-entry__description,
+body.dark-theme .resume-entry__details,
 body.dark-theme .resume-entry__location,
 body.dark-theme .resume-empty-state {
   color: #a9a9a9;

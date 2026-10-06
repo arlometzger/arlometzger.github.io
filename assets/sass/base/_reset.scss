@@ -35,7 +35,23 @@ img {
   max-width: 100%;
 }
 .page-title {
-  margin-bottom: 48px;
+  margin: 0 0 clamp(28px, 4vw, 48px);
+  color: #161616;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.page-eyebrow {
+  margin-bottom: 8px;
+  color: #0063f7;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.page-heading {
+  margin-bottom: clamp(28px, 4vw, 44px);
 }
 .section-title {
   h2 {
@@ -56,11 +72,8 @@ img {
 }
 .main-bar {
   background: #f7f7f7;
-  padding: 40px;
+  padding: clamp(24px, 4vw, 56px);
   margin-top: 20px;
-  @include max(767px) {
-    padding: 10px;
-  }
 }
 .section-padding {
   padding: 40px 0;

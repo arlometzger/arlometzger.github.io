@@ -4,7 +4,7 @@ import zipfile
 from pathlib import Path
 from xml.etree import ElementTree
 
-from scripts.build_resume import extract_resume
+from scripts.build_resume import extract_resume, prepare_pdf_docx
 
 
 WORD_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
@@ -130,6 +130,44 @@ class BuildResumeTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "Heading 1 sections"):
                 extract_resume(docx_path)
+
+    def test_prepares_pdf_tabs_and_bullets_for_conversion(self):
+        document_xml = (
+            '<w:document xmlns:w="{}"><w:body>'
+            '<w:p><w:pPr><w:rPr><w:b/></w:rPr></w:pPr>'
+            '<w:r><w:t>Company</w:t></w:r>'
+            '<w:r><w:tab/><w:tab/><w:t xml:space="preserve">  City</w:t></w:r></w:p>'
+            '<w:sectPr><w:pgSz w:w="12240"/>'
+            '<w:pgMar w:left="720" w:right="720"/></w:sectPr>'
+            '</w:body></w:document>'
+        ).format(WORD_NS)
+        numbering_xml = (
+            '<w:numbering xmlns:w="{}"><w:abstractNum><w:lvl>'
+            '<w:numFmt w:val="bullet"/><w:lvlText w:val="●"/>'
+            '</w:lvl><w:lvl><w:numFmt w:val="decimal"/>'
+            '<w:lvlText w:val="%1."/></w:lvl></w:abstractNum></w:numbering>'
+        ).format(WORD_NS)
+
+        with tempfile.TemporaryDirectory() as directory:
+            source_path = Path(directory) / "source.docx"
+            prepared_path = Path(directory) / "prepared.docx"
+            with zipfile.ZipFile(source_path, "w") as archive:
+                archive.writestr("word/document.xml", document_xml)
+                archive.writestr("word/numbering.xml", numbering_xml)
+
+            prepare_pdf_docx(source_path, prepared_path)
+
+            with zipfile.ZipFile(prepared_path) as archive:
+                prepared_document = archive.read("word/document.xml").decode("utf-8")
+                prepared_numbering = archive.read("word/numbering.xml").decode("utf-8")
+
+        self.assertEqual(prepared_document.count("<w:tab/>"), 1)
+        self.assertIn('<w:tab w:val="right" w:pos="10800"/>', prepared_document)
+        self.assertLess(prepared_document.index("<w:tabs>"), prepared_document.index("<w:rPr>"))
+        self.assertIn("<w:t xml:space=\"preserve\">City</w:t>", prepared_document)
+        self.assertIn('<w:lvlText w:val="•"/>', prepared_numbering)
+        self.assertIn('w:ascii="Liberation Sans"', prepared_numbering)
+        self.assertIn('<w:lvlText w:val="%1."/>', prepared_numbering)
 
 
 if __name__ == "__main__":
