@@ -47,8 +47,8 @@ img {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  -webkit-text-stroke: 0.025em #0063f7;
-  text-shadow: 0.025em 0.025em 0 #0063f7, 0.05em 0.05em 0 #0063f7, 0.075em 0.075em 0 #0063f7, 0.1em 0.1em 0 #0063f7, 0.125em 0.125em 0 #0063f7, 0.15em 0.15em 0 #0063f7, 0.175em 0.175em 0 #0063f7, 0.2em 0.2em 0 #0063f7;
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 0.1em 0.1em 0 #161616, 0.2em 0.2em 0 #0063f7;
 }
 .page-eyebrow {
   margin-bottom: 8px;
@@ -216,10 +216,10 @@ body.dark-theme .institution-info p {
 }
 
 body.dark-theme .page-title {
-  color: #2D2D2D;
+  color: #F7F7F7;
 }
 body.dark-theme .page-heading h1 {
-  color: #2D2D2D;
+  color: #F7F7F7;
 }
 
 body.dark-theme .portfolio-card__title a {
@@ -1416,8 +1416,8 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   margin-bottom: 0;
 }
 .main-bar .title-tab-wrapper .page-title {
-  -webkit-text-stroke: 0.025em #0063f7;
-  text-shadow: 0.1em 0.1em 0 #0063f7, 0.2em 0.2em 0 #161616;
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 0.1em 0.1em 0 #161616, 0.2em 0.2em 0 #0063f7;
 }
 @media (max-width: 767px) {
   .main-bar .title-tab-wrapper {
@@ -1916,8 +1916,8 @@ textarea:focus {
   font-size: clamp(36px, 5vw, 72px);
   line-height: 1.08;
   letter-spacing: -0.04em;
-  -webkit-text-stroke: 0.025em #0063f7;
-  text-shadow: 0.025em 0.025em 0 #0063f7, 0.05em 0.05em 0 #0063f7, 0.075em 0.075em 0 #0063f7, 0.1em 0.1em 0 #0063f7, 0.125em 0.125em 0 #0063f7, 0.15em 0.15em 0 #0063f7, 0.175em 0.175em 0 #0063f7, 0.2em 0.2em 0 #0063f7;
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 0.1em 0.1em 0 #161616, 0.2em 0.2em 0 #0063f7;
 }
 .craft-home__hero > p:not(.craft-home__eyebrow) {
   color: #707070;

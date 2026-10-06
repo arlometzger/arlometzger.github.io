@@ -8,13 +8,6 @@
       margin-bottom: 0;
     }
 
-    .page-title {
-      -webkit-text-stroke: 0.025em #0063f7;
-      text-shadow:
-        0.1em 0.1em 0 #0063f7,
-        0.2em 0.2em 0 #161616;
-    }
-
     @include max(767px) {
       flex-direction: column;
       align-items: flex-start;
