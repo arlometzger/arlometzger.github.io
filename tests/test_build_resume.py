@@ -2,9 +2,10 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 from xml.etree import ElementTree
 
-from scripts.build_resume import extract_resume, prepare_pdf_docx
+from scripts.build_resume import extract_resume, main
 
 
 WORD_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
@@ -75,9 +76,13 @@ class BuildResumeTests(unittest.TestCase):
                     {
                         "title": "Example Maker",
                         "location": "",
-                        "subtitle": "Example Workshop · 2024-present",
-                        "dates": "",
-                        "details": [],
+                        "positions": [
+                            {
+                                "title": "Example Workshop · 2024-present",
+                                "dates": "",
+                                "details": [],
+                            }
+                        ],
                     }
                 ],
                 "skills": ["Woodworking", "Machining"],
@@ -117,9 +122,13 @@ class BuildResumeTests(unittest.TestCase):
             {
                 "title": "Example Workshop",
                 "location": "Portland, OR",
-                "subtitle": "Project Maker",
-                "dates": "2024 - Present",
-                "details": ["Designed and built custom furniture"],
+                "positions": [
+                    {
+                        "title": "Project Maker",
+                        "dates": "2024 - Present",
+                        "details": ["Designed and built custom furniture"],
+                    }
+                ],
             },
         )
 
@@ -149,16 +158,18 @@ class BuildResumeTests(unittest.TestCase):
                 {
                     "title": "Example Company",
                     "location": "Denver, CO",
-                    "subtitle": "Sales Representative",
-                    "dates": "May 2021 - May 2024",
-                    "details": ["Managed sales accounts"],
-                },
-                {
-                    "title": "Example Company",
-                    "location": "Denver, CO",
-                    "subtitle": "Content Author",
-                    "dates": "May 2021 - July 2023",
-                    "details": ["Wrote and edited articles"],
+                    "positions": [
+                        {
+                            "title": "Sales Representative",
+                            "dates": "May 2021 - May 2024",
+                            "details": ["Managed sales accounts"],
+                        },
+                        {
+                            "title": "Content Author",
+                            "dates": "May 2021 - July 2023",
+                            "details": ["Wrote and edited articles"],
+                        },
+                    ],
                 },
             ],
         )
@@ -171,42 +182,42 @@ class BuildResumeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Heading 1 sections"):
                 extract_resume(docx_path)
 
-    def test_prepares_pdf_tabs_and_bullets_for_conversion(self):
-        document_xml = (
-            '<w:document xmlns:w="{}"><w:body>'
-            '<w:p><w:pPr><w:rPr><w:b/></w:rPr></w:pPr>'
-            '<w:r><w:t>Company</w:t></w:r>'
-            '<w:r><w:tab/><w:tab/><w:t xml:space="preserve">  City</w:t></w:r></w:p>'
-            '<w:sectPr><w:pgSz w:w="12240"/>'
-            '<w:pgMar w:left="720" w:right="720"/></w:sectPr>'
-            '</w:body></w:document>'
-        ).format(WORD_NS)
-        numbering_xml = (
-            '<w:numbering xmlns:w="{}"><w:abstractNum><w:lvl>'
-            '<w:numFmt w:val="bullet"/><w:lvlText w:val="●"/>'
-            '</w:lvl><w:lvl><w:numFmt w:val="decimal"/>'
-            '<w:lvlText w:val="%1."/></w:lvl></w:abstractNum></w:numbering>'
-        ).format(WORD_NS)
-
+    def test_build_references_existing_pdf_without_modifying_it(self):
         with tempfile.TemporaryDirectory() as directory:
-            source_path = Path(directory) / "source.docx"
-            prepared_path = Path(directory) / "prepared.docx"
-            with zipfile.ZipFile(source_path, "w") as archive:
-                archive.writestr("word/document.xml", document_xml)
-                archive.writestr("word/numbering.xml", numbering_xml)
+            source_path = Path(directory) / "resume.docx"
+            pdf_path = Path(directory) / "ArloMetzgerResume.pdf"
+            data_path = Path(directory) / "resume-data.js"
+            make_docx(
+                source_path,
+                [
+                    make_paragraph("Education", "Heading1"),
+                    make_paragraph("Example University", "Heading2"),
+                    make_paragraph("Bachelor of Example Studies"),
+                    make_paragraph("Experience", "Heading1"),
+                    make_paragraph("Example Maker", "Heading2"),
+                    make_paragraph("Example Workshop · 2024-present"),
+                    make_paragraph("Skills", "Heading1"),
+                    make_paragraph("Woodworking"),
+                ],
+            )
+            pdf_path.write_bytes(b"user-supplied-pdf")
 
-            prepare_pdf_docx(source_path, prepared_path)
+            with patch(
+                "sys.argv",
+                [
+                    "build_resume.py",
+                    "--input",
+                    str(source_path),
+                    "--data-output",
+                    str(data_path),
+                    "--pdf",
+                    str(pdf_path),
+                ],
+            ):
+                main()
 
-            with zipfile.ZipFile(prepared_path) as archive:
-                prepared_document = archive.read("word/document.xml").decode("utf-8")
-                prepared_numbering = archive.read("word/numbering.xml").decode("utf-8")
-
-        self.assertNotIn("<w:tab/>", prepared_document)
-        self.assertIn("<w:t xml:space=\"preserve\">  |  </w:t>", prepared_document)
-        self.assertIn("<w:t xml:space=\"preserve\">City</w:t>", prepared_document)
-        self.assertIn('<w:lvlText w:val="•"/>', prepared_numbering)
-        self.assertIn('w:ascii="Liberation Sans"', prepared_numbering)
-        self.assertIn('<w:lvlText w:val="%1."/>', prepared_numbering)
+            self.assertIn(f'"pdfUrl": "{pdf_path.as_posix()}"', data_path.read_text())
+            self.assertEqual(pdf_path.read_bytes(), b"user-supplied-pdf")
 
 
 if __name__ == "__main__":

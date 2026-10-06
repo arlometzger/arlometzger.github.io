@@ -2157,6 +2157,11 @@ body.dark-theme .portfolio-empty-state {
   margin-left: auto;
   text-align: right;
 }
+.resume-entry__position + .resume-entry__position {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e2e2;
+}
 .resume-entry__description {
   color: #707070;
   font-size: 15px;
@@ -2201,6 +2206,9 @@ body.dark-theme .resume-section > h2 {
   border-color: #434343;
 }
 body.dark-theme .resume-entry {
+  border-color: #434343;
+}
+body.dark-theme .resume-entry__position + .resume-entry__position {
   border-color: #434343;
 }
 body.dark-theme .resume-entry__description,

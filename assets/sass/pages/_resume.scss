@@ -69,6 +69,12 @@
     }
   }
 
+  &__position + &__position {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #e2e2e2;
+  }
+
   &__description {
     color: #707070;
     font-size: 15px;
@@ -124,6 +130,10 @@ body.dark-theme {
   }
 
   .resume-entry {
+    border-color: #434343;
+  }
+
+  .resume-entry__position + .resume-entry__position {
     border-color: #434343;
   }
 

@@ -23,8 +23,11 @@ or `Miscellaneous`), and an `image` path. An optional `url` can link to a
 project detail page. The portfolio page filters by the selected category, and
 the home page shows up to three photos per category. Gallery slots remain
 placeholders until project photos are added.
-Use `ArloMetzgerResume.docx` as the resume source. Export the Google Doc as
-Microsoft Word (.docx), then structure it with Heading 1 sections named
+Keep a matching `ArloMetzgerResume.docx` and `ArloMetzgerResume.pdf` in the
+repository root. Export both files from the same Google Doc whenever the resume
+changes. The DOCX populates the webpage; the checked-in PDF is served as the
+download without being converted or modified by the build. Structure the DOCX
+with Heading 1 sections named
 `Education`, `Experience`, and `Skills`. Use Heading 2 for each school or
 company when practical; put each school or company and its location in separate
 tab-delimited cells.
@@ -33,13 +36,10 @@ date line for each role beneath that company; descriptions beneath each role
 belong to that role. For education, put the degree and dates on the first body
 line under the school. Put each skill on its own paragraph or bullet under
 Skills.
-GitHub Actions extracts those sections into the website and converts the same
-DOCX to `ArloMetzgerResume.pdf` using LibreOffice. No browser plugin or
-external resume service is required. Experience descriptions render as bullets
-on the website. For the PDF, tab-delimited fields use a consistent inline
-separator to prevent long role titles from pushing dates onto stray lines. The
-build applies that formatting and normalizes bullet fonts in a temporary DOCX
-copy; the source document remains unchanged.
+GitHub Actions extracts the resume data from the DOCX and verifies that the
+matching PDF exists before deployment. Experience descriptions render as
+bullets on the website, with all roles grouped under their employer. Keep the
+DOCX and PDF filenames in sync with the workflow if you rename either file.
 
 ## Project structure
 

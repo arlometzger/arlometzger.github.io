@@ -13,34 +13,56 @@ function appendResumeEntry(container, entry, type) {
         article.appendChild(location);
     }
 
-    if (entry.subtitle || entry.dates) {
-        const metadata = document.createElement("p");
-        metadata.className = "resume-entry__metadata";
-        if (entry.subtitle) {
-            const subtitle = document.createElement("span");
-            subtitle.textContent = entry.subtitle;
-            metadata.appendChild(subtitle);
-        }
-        if (entry.dates) {
-            const dates = document.createElement("span");
-            dates.textContent = entry.dates;
-            metadata.appendChild(dates);
-        }
-        article.appendChild(metadata);
-    }
+    if (type === "experience") {
+        (entry.positions || []).forEach((position) => {
+            const positionSection = document.createElement("section");
+            positionSection.className = "resume-entry__position";
 
-    const details = entry.details || [];
-    if (type === "experience" && details.length > 0) {
-        const list = document.createElement("ul");
-        list.className = "resume-entry__details";
-        details.forEach((detail) => {
-            const item = document.createElement("li");
-            item.textContent = detail;
-            list.appendChild(item);
+            const metadata = document.createElement("p");
+            metadata.className = "resume-entry__metadata";
+            if (position.title) {
+                const title = document.createElement("span");
+                title.textContent = position.title;
+                metadata.appendChild(title);
+            }
+            if (position.dates) {
+                const dates = document.createElement("span");
+                dates.textContent = position.dates;
+                metadata.appendChild(dates);
+            }
+            positionSection.appendChild(metadata);
+
+            const details = position.details || [];
+            if (details.length > 0) {
+                const list = document.createElement("ul");
+                list.className = "resume-entry__details";
+                details.forEach((detail) => {
+                    const item = document.createElement("li");
+                    item.textContent = detail;
+                    list.appendChild(item);
+                });
+                positionSection.appendChild(list);
+            }
+
+            article.appendChild(positionSection);
         });
-        article.appendChild(list);
     } else {
-        details.forEach((detail) => {
+        if (entry.subtitle || entry.dates) {
+            const metadata = document.createElement("p");
+            metadata.className = "resume-entry__metadata";
+            if (entry.subtitle) {
+                const subtitle = document.createElement("span");
+                subtitle.textContent = entry.subtitle;
+                metadata.appendChild(subtitle);
+            }
+            if (entry.dates) {
+                const dates = document.createElement("span");
+                dates.textContent = entry.dates;
+                metadata.appendChild(dates);
+            }
+            article.appendChild(metadata);
+        }
+        (entry.details || []).forEach((detail) => {
             const description = document.createElement("p");
             description.className = "resume-entry__description";
             description.textContent = detail;
