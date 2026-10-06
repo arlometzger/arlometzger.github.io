@@ -3,7 +3,7 @@
 
   &__header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
     margin-bottom: clamp(28px, 4vw, 44px);
