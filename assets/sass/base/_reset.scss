@@ -36,15 +36,13 @@ img {
 }
 .page-title {
   margin: 0 0 clamp(28px, 4vw, 48px);
-  color: #f7f7f7;
+  color: #fff;
   font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  -webkit-text-stroke: 0.025em #161616;
-  text-shadow:
-    0.1em 0.1em 0 #161616,
-    0.2em 0.2em 0 #0063f7;
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 0.075em 0.075em 0 #0063f7;
 }
 .page-eyebrow {
   margin-bottom: 8px;

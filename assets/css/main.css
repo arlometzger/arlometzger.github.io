@@ -42,13 +42,13 @@ img {
 
 .page-title {
   margin: 0 0 clamp(28px, 4vw, 48px);
-  color: #f7f7f7;
+  color: #fff;
   font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  -webkit-text-stroke: 0.025em #161616;
-  text-shadow: 0.1em 0.1em 0 #161616, 0.2em 0.2em 0 #0063f7;
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 0.075em 0.075em 0 #0063f7;
 }
 .page-eyebrow {
   margin-bottom: 8px;
@@ -216,10 +216,10 @@ body.dark-theme .institution-info p {
 }
 
 body.dark-theme .page-title {
-  color: #F7F7F7;
+  color: #fff;
 }
 body.dark-theme .page-heading h1 {
-  color: #F7F7F7;
+  color: #fff;
 }
 
 body.dark-theme .portfolio-card__title a {
@@ -1416,8 +1416,8 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   margin-bottom: 0;
 }
 .main-bar .title-tab-wrapper .page-title {
-  -webkit-text-stroke: 0.025em #161616;
-  text-shadow: 0.1em 0.1em 0 #161616, 0.2em 0.2em 0 #0063f7;
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 0.075em 0.075em 0 #0063f7;
 }
 @media (max-width: 767px) {
   .main-bar .title-tab-wrapper {
@@ -1912,12 +1912,12 @@ textarea:focus {
 .craft-home__hero h1 {
   max-width: 850px;
   margin: 0 0 16px;
-  color: #f7f7f7;
+  color: #fff;
   font-size: clamp(36px, 5vw, 72px);
   line-height: 1.08;
   letter-spacing: -0.04em;
-  -webkit-text-stroke: 0.025em #161616;
-  text-shadow: 0.1em 0.1em 0 #161616, 0.2em 0.2em 0 #0063f7;
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 0.075em 0.075em 0 #0063f7;
 }
 .craft-home__hero > p:not(.craft-home__eyebrow) {
   color: #707070;
@@ -1943,6 +1943,154 @@ textarea:focus {
 }
 .craft-home__portfolio-link a {
   font-size: 15px;
+}
+.heading-style-preview {
+  padding: 28px 0 8px;
+}
+.heading-style-preview > h2 {
+  margin-bottom: 20px;
+  color: #707070;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.heading-style-preview__group {
+  margin-bottom: 28px;
+}
+.heading-style-preview__group > h3 {
+  margin-bottom: 14px;
+  color: #161616;
+  font-size: 20px;
+}
+.heading-style-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+}
+.heading-style-preview__sample {
+  min-width: 0;
+  padding: 16px 20px 24px 8px;
+  border-bottom: 1px solid #dedede;
+  overflow: hidden;
+}
+.heading-style-preview__sample p {
+  margin-bottom: 14px;
+  color: #707070;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.heading-style-preview__text {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+}
+.heading-style-preview__text--01 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #0063f7;
+}
+.heading-style-preview__text--02 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #0063f7;
+}
+.heading-style-preview__text--03 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #161616;
+}
+.heading-style-preview__text--04 {
+  color: #0063f7;
+  text-shadow: 3px 3px 0 #161616;
+}
+.heading-style-preview__text--05 {
+  color: #0063f7;
+  text-shadow: 3px 3px 0 #79b4ff, 6px 6px 0 #161616;
+}
+.heading-style-preview__text--06 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #0063f7, 6px 6px 0 #79b4ff;
+}
+.heading-style-preview__text--07 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #0063f7, 6px 6px 0 #161616;
+}
+.heading-style-preview__text--08 {
+  text-shadow: 3px 3px 0 #0063f7, 6px 6px 0 #161616;
+}
+.heading-style-preview__text--09 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #79b4ff, 6px 6px 0 #0063f7;
+}
+.heading-style-preview__text--10 {
+  -webkit-text-stroke: 0.025em #79b4ff;
+  text-shadow: 3px 3px 0 #79b4ff, 6px 6px 0 #0063f7;
+}
+.heading-style-preview__text--11 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #0063f7, 6px 6px 0 #4d94f9, 9px 9px 0 #b3d5fd;
+}
+.heading-style-preview__text--12 {
+  -webkit-text-stroke: 0.025em #123b69;
+  text-shadow: 3px 3px 0 #0063f7;
+}
+.heading-style-preview__text--13 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #123b69;
+}
+.heading-style-preview__text--14 {
+  color: #0063f7;
+  -webkit-text-stroke: 0.025em #fff;
+  text-shadow: 3px 3px 0 #161616;
+}
+.heading-style-preview__text--15 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #0063f7;
+}
+.heading-style-preview__text--16 {
+  color: #0063f7;
+  text-shadow: 3px 3px 0 #0063f7;
+}
+.heading-style-preview__text--17 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #161616, 6px 6px 0 #0063f7;
+}
+.heading-style-preview__text--18 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #0063f7, 6px 6px 0 #161616;
+}
+.heading-style-preview__text--19 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #161616, 6px 6px 0 #79b4ff;
+}
+.heading-style-preview__text--20 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #0063f7, 6px 6px 0 #79b4ff;
+}
+.heading-style-preview__text--21 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #161616;
+}
+.heading-style-preview__text--22 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #79b4ff;
+}
+.heading-style-preview__text--23 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #161616, 6px 6px 0 #0063f7;
+}
+.heading-style-preview__text--24 {
+  -webkit-text-stroke: 0.025em #0063f7;
+  text-shadow: 3px 3px 0 #161616, 6px 6px 0 #79b4ff;
+}
+.heading-style-preview__text--25 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #161616;
+}
+.heading-style-preview__text--26 {
+  -webkit-text-stroke: 0.025em #161616;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #0063f7;
 }
 .craft-intro {
   max-width: 900px;
@@ -2032,8 +2180,14 @@ textarea:focus {
   font-size: 18px;
   line-height: 1.7;
 }
-body.dark-theme .craft-home__hero h1 {
-  color: #2d2d2d;
+body.dark-theme .heading-style-preview__group > h3 {
+  color: #f7f7f7;
+}
+body.dark-theme .heading-style-preview__sample {
+  border-color: #434343;
+}
+body.dark-theme .heading-style-preview__sample p {
+  color: #a9a9a9;
 }
 body.dark-theme .craft-intro h2,
 body.dark-theme .craft-category__heading h2 {
@@ -2084,6 +2238,9 @@ body.dark-theme .portfolio-empty-state {
   color: #a9a9a9;
 }
 @media (max-width: 767px) {
+  .heading-style-preview__grid {
+    grid-template-columns: 1fr;
+  }
   .craft-home-container {
     width: 100%;
     padding: 0 12px;
