@@ -17,82 +17,21 @@ SECTIONS = {"education", "experience", "skills"}
 
 
 def normalize_document_xml(document_xml):
-    page_size = re.search(r"<w:pgSz\b([^>]*)>", document_xml)
-    page_margins = re.search(r"<w:pgMar\b([^>]*)>", document_xml)
-    if not page_size or not page_margins:
-        raise ValueError("Could not determine DOCX page width and margins.")
-
-    page_width = re.search(r'\bw:w="(\d+)"', page_size.group(1))
-    left_margin = re.search(r'\bw:left="(\d+)"', page_margins.group(1))
-    right_margin = re.search(r'\bw:right="(\d+)"', page_margins.group(1))
-    if not page_width or not left_margin or not right_margin:
-        raise ValueError("Could not determine DOCX page width and margins.")
-
-    tab_position = (
-        int(page_width.group(1))
-        - int(left_margin.group(1))
-        - int(right_margin.group(1))
-    )
-    if tab_position <= 0:
-        raise ValueError("DOCX page margins leave no room for a right-aligned tab.")
-    tab_stop = f'<w:tab w:val="right" w:pos="{tab_position}"/>'
-
     def normalize_paragraph(match):
         paragraph = match.group(0)
         if "<w:tab" not in paragraph:
             return paragraph
 
-        paragraph = re.sub(r"(?:<w:tab\b[^>]*/>){2,}", "<w:tab/>", paragraph)
         paragraph = re.sub(
-            r'(<w:tab\b[^>]*/>)(<w:t\b[^>]*>)[ \t]+',
-            r"\1\2",
+            r"(?:<w:tab\s*/>)+",
+            '<w:t xml:space="preserve">  |  </w:t>',
             paragraph,
-            count=1,
         )
-
-        tabs = re.search(r"<w:tabs\b[^>]*>.*?</w:tabs>", paragraph, re.DOTALL)
-        if tabs:
-            existing_stops = re.sub(
-                r'<w:tab\b(?=[^>]*\bw:val="right")[^>]*/>',
-                "",
-                tabs.group(0),
-            )
-            paragraph = (
-                paragraph[: tabs.start()]
-                + existing_stops.replace("</w:tabs>", tab_stop + "</w:tabs>")
-                + paragraph[tabs.end() :]
-            )
-        else:
-            properties = re.search(
-                r"<w:pPr\b[^>]*>.*?</w:pPr>",
-                paragraph,
-                re.DOTALL,
-            )
-            if properties:
-                paragraph_properties = properties.group(0)
-                run_properties = re.search(r"<w:rPr\b", paragraph_properties)
-                insertion_point = (
-                    run_properties.start()
-                    if run_properties
-                    else paragraph_properties.rfind("</w:pPr>")
-                )
-                updated_properties = (
-                    paragraph_properties[:insertion_point]
-                    + f"<w:tabs>{tab_stop}</w:tabs>"
-                    + paragraph_properties[insertion_point:]
-                )
-                paragraph = (
-                    paragraph[: properties.start()]
-                    + updated_properties
-                    + paragraph[properties.end() :]
-                )
-            else:
-                paragraph = re.sub(
-                    r"(<w:p\b[^>]*>)",
-                    rf"\1<w:pPr><w:tabs>{tab_stop}</w:tabs></w:pPr>",
-                    paragraph,
-                    count=1,
-                )
+        paragraph = re.sub(
+            r'(<w:t\b[^>]*>  \|  </w:t><w:t\b[^>]*>)[ \t]+',
+            r"\1",
+            paragraph,
+        )
         return paragraph
 
     return re.sub(
@@ -196,6 +135,22 @@ def heading_level(style):
     return 0
 
 
+def is_date_field(value):
+    return bool(re.search(r"\b(?:19|20)\d{2}\b", value))
+
+
+def add_experience_entry(resume, organization, location, fields):
+    resume["experience"].append(
+        {
+            "title": organization,
+            "location": location,
+            "subtitle": fields[0],
+            "dates": fields[-1] if len(fields) > 1 else "",
+            "details": fields[1:-1] if len(fields) > 2 else [],
+        }
+    )
+
+
 def extract_resume(docx_path):
     try:
         with zipfile.ZipFile(docx_path) as archive:
@@ -206,6 +161,8 @@ def extract_resume(docx_path):
     resume = {"education": [], "experience": [], "skills": []}
     section = None
     current_entry = None
+    current_organization = ""
+    current_location = ""
     seen_sections = set()
 
     for paragraph in document.iter(f"{WORD_NS}p"):
@@ -220,22 +177,64 @@ def extract_resume(docx_path):
             section = normalized_text
             seen_sections.add(section)
             current_entry = None
+            current_organization = ""
+            current_location = ""
             continue
 
         if section == "skills":
             resume["skills"].extend(fields)
             continue
 
-        if section in {"education", "experience"} and level == 2:
-            key = "institution" if section == "education" else "title"
+        is_date_row = len(fields) > 1 and is_date_field(fields[-1])
+        is_organization_row = (
+            section == "experience"
+            and not is_date_row
+            and (level == 2 or len(fields) > 1)
+        )
+        is_education_row = (
+            section == "education"
+            and not is_date_row
+            and (level == 2 or len(fields) > 1)
+        )
+
+        if is_organization_row:
+            current_organization = fields[0]
+            current_location = fields[-1] if len(fields) > 1 else ""
+            current_entry = None
+        elif section == "experience" and is_date_row and current_organization:
+            add_experience_entry(
+                resume,
+                current_organization,
+                current_location,
+                fields,
+            )
+            current_entry = resume["experience"][-1]
+        elif section == "experience" and current_organization and len(fields) == 1:
+            if current_entry is None:
+                add_experience_entry(
+                    resume,
+                    current_organization,
+                    current_location,
+                    fields,
+                )
+                current_entry = resume["experience"][-1]
+            elif not current_entry["subtitle"]:
+                current_entry["subtitle"] = fields[0]
+            else:
+                current_entry["details"].append(fields[0].lstrip("• ").strip())
+        elif is_education_row:
             current_entry = {
-                key: fields[0],
+                "institution": fields[0],
                 "location": fields[-1] if len(fields) > 1 else "",
                 "subtitle": "",
                 "dates": "",
                 "details": [],
             }
-            resume[section].append(current_entry)
+            resume["education"].append(current_entry)
+        elif section == "education" and is_date_row and current_entry is not None:
+            current_entry["subtitle"] = fields[0]
+            current_entry["dates"] = fields[-1]
+            current_entry["details"].extend(fields[1:-1])
         elif section in {"education", "experience"} and current_entry is not None:
             if not current_entry["subtitle"]:
                 current_entry["subtitle"] = fields[0]

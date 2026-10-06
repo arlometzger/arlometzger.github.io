@@ -25,16 +25,21 @@ the home page shows up to three photos per category. Gallery slots remain
 placeholders until project photos are added.
 Use `ArloMetzgerResume.docx` as the resume source. Export the Google Doc as
 Microsoft Word (.docx), then structure it with Heading 1 sections named
-`Education`, `Experience`, and `Skills`. Use Heading 2 for each school or role;
-put the school/company and location in separate tab-delimited cells on that
-heading line. On the next body line, put the degree/position and dates in
-separate tab-delimited cells. Further paragraphs beneath the entry become its
-description. Put each skill on its own paragraph or bullet under Skills.
+`Education`, `Experience`, and `Skills`. Use Heading 2 for each school or
+company when practical; put each school or company and its location in separate
+tab-delimited cells.
+For a company with multiple roles, add a separate tab-delimited position and
+date line for each role beneath that company; descriptions beneath each role
+belong to that role. For education, put the degree and dates on the first body
+line under the school. Put each skill on its own paragraph or bullet under
+Skills.
 GitHub Actions extracts those sections into the website and converts the same
 DOCX to `ArloMetzgerResume.pdf` using LibreOffice. No browser plugin or
 external resume service is required. Experience descriptions render as bullets
-on the website. For the PDF, the build normalizes tab alignment and bullet
-fonts in a temporary DOCX copy; the source document remains unchanged.
+on the website. For the PDF, tab-delimited fields use a consistent inline
+separator to prevent long role titles from pushing dates onto stray lines. The
+build applies that formatting and normalizes bullet fonts in a temporary DOCX
+copy; the source document remains unchanged.
 
 ## Project structure
 

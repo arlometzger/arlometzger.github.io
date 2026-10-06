@@ -123,6 +123,46 @@ class BuildResumeTests(unittest.TestCase):
             },
         )
 
+    def test_extracts_multiple_positions_under_one_employer(self):
+        paragraphs = [
+            make_paragraph("Education", "Heading1"),
+            make_paragraph("Example University\t\tSpringfield, IL", "Heading2"),
+            make_paragraph("Bachelor of Science\t\t2020 - 2024"),
+            make_paragraph("Experience", "Heading1"),
+            make_paragraph("Example Company\t\tDenver, CO"),
+            make_paragraph("Sales Representative\t\tMay 2021 - May 2024"),
+            make_paragraph("Managed sales accounts"),
+            make_paragraph("Content Author\t\tMay 2021 - July 2023"),
+            make_paragraph("Wrote and edited articles"),
+            make_paragraph("Skills", "Heading1"),
+            make_paragraph("Writing"),
+        ]
+
+        with tempfile.TemporaryDirectory() as directory:
+            docx_path = Path(directory) / "resume.docx"
+            make_docx(docx_path, paragraphs)
+            resume = extract_resume(docx_path)
+
+        self.assertEqual(
+            resume["experience"],
+            [
+                {
+                    "title": "Example Company",
+                    "location": "Denver, CO",
+                    "subtitle": "Sales Representative",
+                    "dates": "May 2021 - May 2024",
+                    "details": ["Managed sales accounts"],
+                },
+                {
+                    "title": "Example Company",
+                    "location": "Denver, CO",
+                    "subtitle": "Content Author",
+                    "dates": "May 2021 - July 2023",
+                    "details": ["Wrote and edited articles"],
+                },
+            ],
+        )
+
     def test_rejects_missing_required_sections(self):
         with tempfile.TemporaryDirectory() as directory:
             docx_path = Path(directory) / "resume.docx"
@@ -161,9 +201,8 @@ class BuildResumeTests(unittest.TestCase):
                 prepared_document = archive.read("word/document.xml").decode("utf-8")
                 prepared_numbering = archive.read("word/numbering.xml").decode("utf-8")
 
-        self.assertEqual(prepared_document.count("<w:tab/>"), 1)
-        self.assertIn('<w:tab w:val="right" w:pos="10800"/>', prepared_document)
-        self.assertLess(prepared_document.index("<w:tabs>"), prepared_document.index("<w:rPr>"))
+        self.assertNotIn("<w:tab/>", prepared_document)
+        self.assertIn("<w:t xml:space=\"preserve\">  |  </w:t>", prepared_document)
         self.assertIn("<w:t xml:space=\"preserve\">City</w:t>", prepared_document)
         self.assertIn('<w:lvlText w:val="•"/>', prepared_numbering)
         self.assertIn('w:ascii="Liberation Sans"', prepared_numbering)
