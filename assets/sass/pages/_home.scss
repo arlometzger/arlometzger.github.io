@@ -28,7 +28,11 @@
       font-size: clamp(36px, 5vw, 72px);
       line-height: 1.08;
       letter-spacing: -0.04em;
-      text-shadow: 2.2px 2.2px 0 #0063f7;
+      text-shadow:
+        1px 1px 0 #0063f7,
+        2px 2px 0 #0063f7,
+        3px 3px 0 #0063f7,
+        4px 4px 0 #0063f7;
     }
 
     > p:not(.craft-home__eyebrow) {
