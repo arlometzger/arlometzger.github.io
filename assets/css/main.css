@@ -42,7 +42,7 @@ img {
 
 .page-title {
   margin: 0 0 clamp(28px, 4vw, 48px);
-  color: #161616;
+  color: #f7f7f7;
   font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 700;
   line-height: 1.1;
@@ -215,10 +215,10 @@ body.dark-theme .institution-info p {
 }
 
 body.dark-theme .page-title {
-  color: #F7F7F7;
+  color: #2D2D2D;
 }
 body.dark-theme .page-heading h1 {
-  color: #F7F7F7;
+  color: #2D2D2D;
 }
 
 body.dark-theme .portfolio-card__title a {
@@ -1907,7 +1907,7 @@ textarea:focus {
 .craft-home__hero h1 {
   max-width: 850px;
   margin: 0 0 16px;
-  color: #161616;
+  color: #f7f7f7;
   font-size: clamp(36px, 5vw, 72px);
   line-height: 1.08;
   letter-spacing: -0.04em;
@@ -2027,7 +2027,7 @@ textarea:focus {
   line-height: 1.7;
 }
 body.dark-theme .craft-home__hero h1 {
-  color: #f7f7f7;
+  color: #2d2d2d;
 }
 body.dark-theme .craft-intro h2,
 body.dark-theme .craft-category__heading h2 {
