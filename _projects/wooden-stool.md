@@ -5,11 +5,11 @@ date: 2026-02-22
 description: "Step Stool made from live edge Oak slab and Rubberwood chair legs"
 image_description: "Step Stool made from live edge Oak slab and Rubberwood chair legs"
 gallery:
-  - image: /assets/images/projects/wooden-stool/3-4-view
+  - image: /assets/images/projects/wooden-stool/3-4-view.jpeg
     alt: "3/4 View of the Step Stool"
-  - image: /assets/images/projects/wooden-stool/side-view
+  - image: /assets/images/projects/wooden-stool/side-view.jpeg
     alt: "Side view of the Step stool"
-  - image: /assets/images/projects/wooden-stool/front-view
+  - image: /assets/images/projects/wooden-stool/front-view.jpeg
     alt: "Front view of the Step stool"
 ---
 
