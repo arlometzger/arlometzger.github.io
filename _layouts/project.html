@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="collection-detail collection-project">
+    <header class="page-heading">
+        <h1 class="page-title">{{ page.title | escape }}</h1>
+        {% if page.description %}
+        <p class="collection-detail__summary">{{ page.description | escape }}</p>
+        {% endif %}
+    </header>
+    {% if page.image %}
+    <figure class="collection-detail__cover">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">
+    </figure>
+    {% endif %}
+    <div class="collection-detail__meta">
+        {% if page.category %}<span>{{ page.category | escape }}</span>{% endif %}
+        {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% endif %}
+    </div>
+    <div class="collection-detail__body">
+        {{ content }}
+    </div>
+    <p class="collection-detail__back"><a href="{{ '/portfolio.html' | relative_url }}">Back to all projects</a></p>
+</article>

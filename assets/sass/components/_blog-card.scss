@@ -75,10 +75,10 @@
     letter-spacing: -0.001em;
     color: #707070;
     margin-bottom: 16px;
-    height: 100px;
-    white-space: nowrap;
+    display: -webkit-box;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
   &__author {
     font-size: 14px;

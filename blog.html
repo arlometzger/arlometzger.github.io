@@ -1,12 +1,14 @@
 ---
+title: Blog
+description: Notes, project stories, and lessons from the workshop.
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Card | Blog</title>
+    <title>Arlo Metzger | Blog</title>
     <!-- cdn font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
@@ -27,12 +29,28 @@
                             <header class="page-heading">
                                 <h1 class="page-title">Blog</h1>
                             </header>
-                            <div id="blog">
-                                
+                            <div id="blog" aria-live="polite">
+                                {% assign posts = site.posts | sort: "date" | reverse %}
+                                {% for post in posts %}
+                                <article class="blog-card" data-blog-card>
+                                    {% if post.image %}
+                                    <div class="blog-card__feature-image">
+                                        <a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title | escape }}" loading="lazy"></a>
+                                    </div>
+                                    {% endif %}
+                                    <div class="blog-card__meta">
+                                        {% if post.category %}<p class="blog-card__meta-left">{{ post.category | escape }}</p>{% endif %}
+                                        <time class="blog-card__meta-right" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                                    </div>
+                                    <h2 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+                                    {% if post.description %}<p class="blog-card__short-desc">{{ post.description | escape }}</p>{% endif %}
+                                    <a class="blog-card__btn" href="{{ post.url | relative_url }}">Read more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </article>
+                                {% else %}
+                                <p class="portfolio-empty-state">No blog posts yet. Copy the blog template into <code>_posts/</code> to add one.</p>
+                                {% endfor %}
                             </div>
-                            <button id="load-more-btn">
-                                Load More    
-                            </button>
+                            <button id="load-more-btn" type="button" hidden>Load more</button>
                     </div>
                 </div>
             </div>

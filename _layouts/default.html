@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <title>{{ page.title | escape }} | Arlo Metzger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/bootstrap-grid.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20261006-17' | relative_url }}">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="craft-home-container">
+            <div class="row">
+                <div class="col-2 col-md-1 col-lg-3">
+                    {% include sidebar.html active=page.nav_section toggle_id=page.nav_section %}
+                </div>
+                <div class="col-10 col-md-11 col-lg-9">
+                    <main class="main-bar collection-page">
+                        {{ content }}
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ '/assets/js/personal-info.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/mode-switcher.js' | relative_url }}"></script>
+</body>
+</html>

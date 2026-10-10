@@ -1,0 +1,22 @@
+{% assign gallery_projects = site.projects | where: "category", include.category | sort: "date" | reverse %}
+{% for project in gallery_projects limit: 3 %}
+    {% if project.image %}
+    <a class="craft-gallery__item" href="{{ project.url | relative_url }}" aria-label="View {{ project.title | escape }}">
+        <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+    </a>
+    {% else %}
+    <a class="craft-gallery__placeholder" href="{{ project.url | relative_url }}" aria-label="View {{ project.title | escape }}">
+        <i class="fa-regular fa-image" aria-hidden="true"></i>
+        <span>{{ project.title | escape }}</span>
+    </a>
+    {% endif %}
+{% endfor %}
+{% assign project_count = gallery_projects.size %}
+{% for slot in (1..3) %}
+    {% if slot > project_count %}
+    <div class="craft-gallery__placeholder" role="img" aria-label="Add a {{ include.category | escape }} project photo">
+        <i class="fa-regular fa-image" aria-hidden="true"></i>
+        <span>Add a project photo</span>
+    </div>
+    {% endif %}
+{% endfor %}

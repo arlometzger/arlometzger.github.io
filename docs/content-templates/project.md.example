@@ -1,0 +1,18 @@
+---
+title: "Project title"
+category: Woodworking
+date: 2026-10-06
+description: "A short summary for the portfolio card and search results."
+image: /assets/images/projects/project-slug/cover.jpg
+image_alt: "Describe what is visible in the project photo"
+---
+
+Write the project story here using Markdown.
+
+## Process
+
+Describe the materials, tools, decisions, and steps involved.
+
+Add more project photos like this:
+
+![Describe the finished detail](/assets/images/projects/project-slug/detail-01.jpg)

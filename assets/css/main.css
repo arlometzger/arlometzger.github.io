@@ -408,6 +408,10 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   .sidebar-profile__image img {
     margin-top: 40px;
   }
+  .main-bar #load-more-btn[hidden],
+  .main-bar #portfolio-filter-empty[hidden] {
+    display: none;
+  }
 }
 .sidebar-profile__image img {
   width: 100%;
@@ -713,10 +717,10 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   letter-spacing: -0.001em;
   color: #707070;
   margin-bottom: 16px;
-  height: 100px;
-  white-space: nowrap;
+  display: -webkit-box;
   overflow: hidden;
-  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .blog-card__author {
   font-size: 14px;
@@ -769,6 +773,7 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   width: 100%;
   height: 250px;
   border-radius: 5px;
+  object-fit: cover;
 }
 .portfolio-card__meta {
   margin-bottom: 16px;
@@ -1636,7 +1641,67 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   letter-spacing: -0.02em;
   color: #161616;
 }
-
+.collection-detail {
+  max-width: 1000px;
+  margin-bottom: 64px;
+}
+.collection-detail__summary {
+  max-width: 800px;
+  color: #707070;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.collection-detail__cover {
+  margin: 0 0 20px;
+}
+.collection-detail__cover img {
+  display: block;
+  width: 100%;
+  max-height: 680px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.collection-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 28px;
+  color: #707070;
+  font-size: 14px;
+}
+.collection-detail__body {
+  max-width: 800px;
+  color: #404040;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.collection-detail__body h2,
+.collection-detail__body h3 {
+  margin: 32px 0 12px;
+  color: #161616;
+}
+.collection-detail__body p,
+.collection-detail__body ul,
+.collection-detail__body ol,
+.collection-detail__body figure {
+  margin-bottom: 20px;
+}
+.collection-detail__body img {
+  height: auto;
+  border-radius: 6px;
+}
+.collection-detail__back {
+  margin-top: 36px;
+  font-weight: 600;
+}
+.collection-detail__back a {
+  color: #0063f7;
+}
+body.dark-theme .collection-detail__body,
+body.dark-theme .collection-detail__body h2,
+body.dark-theme .collection-detail__body h3 {
+  color: #f7f7f7;
+}
 .contact {
   background-color: #f7f7f7;
 }

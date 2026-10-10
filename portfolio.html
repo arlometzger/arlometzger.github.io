@@ -1,7 +1,9 @@
 ---
+title: Portfolio
+description: Browse woodworking, machining, 3D modeling, pottery, and other craft projects by Arlo Metzger.
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,8 +38,29 @@
                                 <li><a class="tab-item" href="portfolio.html?category=Miscellaneous">Miscellaneous</a></li>
                             </ul>
                         </div>
-                        <div id="portfolio" aria-live="polite"></div>
-                        <button id="load-more-btn" type="button">Load more</button>
+                        <div id="portfolio" aria-live="polite">
+                            {% assign projects = site.projects | sort: "date" | reverse %}
+                            {% for project in projects %}
+                            <article class="portfolio-card" data-project-card data-category="{{ project.category | escape }}">
+                                <div class="portfolio-card__feature-image">
+                                    <a href="{{ project.url | relative_url }}">
+                                        {% if project.image %}
+                                        <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+                                        {% else %}
+                                        <span class="portfolio-card__placeholder">Add a project photo</span>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <p class="portfolio-card__meta">{{ project.category | escape }}</p>
+                                <h2 class="portfolio-card__title"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h2>
+                                {% if project.description %}<p class="portfolio-card__short-desc">{{ project.description | escape }}</p>{% endif %}
+                            </article>
+                            {% else %}
+                            <p class="portfolio-empty-state">No projects yet. Copy the project template into <code>_projects/</code> to add one.</p>
+                            {% endfor %}
+                        </div>
+                        <p id="portfolio-filter-empty" class="portfolio-empty-state" hidden></p>
+                        <button id="load-more-btn" type="button" hidden>Load more</button>
                     </div>
                 </div>
             </div>
@@ -46,7 +69,6 @@
     </div>
 
     <script src="assets/js/personal-info.js"></script>
-    <script src="assets/js/projects.js"></script>
     <script src="./assets/js/portfolio.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="assets/js/mode-switcher.js"></script>

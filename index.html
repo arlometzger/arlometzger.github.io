@@ -22,7 +22,7 @@
                     <main class="main-bar craft-home">
                         <header class="craft-home__hero">
                             <h1>I like to make things.</h1>
-                            <p>Woodworking, machining, 3D modelling, and more.</p>
+                            <p>Woodworking, Machining, 3D Modelling, and More.</p>
                             <a class="craft-home__about-link" href="about.html">About me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </header>
 
@@ -41,7 +41,7 @@
                                     <h2 id="woodworking-title">Woodworking</h2>
                                     <a href="portfolio.html?category=Woodworking">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="craft-gallery" data-project-gallery="Woodworking" aria-label="Woodworking project gallery"></div>
+                                <div class="craft-gallery" aria-label="Woodworking project gallery">{% include project-gallery.html category="Woodworking" %}</div>
                             </section>
 
                             <section class="craft-category" id="machining" aria-labelledby="machining-title">
@@ -49,7 +49,7 @@
                                     <h2 id="machining-title">Machining</h2>
                                     <a href="portfolio.html?category=Machining">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="craft-gallery" data-project-gallery="Machining" aria-label="Machining project gallery"></div>
+                                <div class="craft-gallery" aria-label="Machining project gallery">{% include project-gallery.html category="Machining" %}</div>
                             </section>
 
                             <section class="craft-category" id="3d-modelling" aria-labelledby="modelling-title">
@@ -57,7 +57,7 @@
                                     <h2 id="modelling-title">3D modelling</h2>
                                     <a href="portfolio.html?category=3D%20modelling">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="craft-gallery" data-project-gallery="3D modelling" aria-label="3D modelling project gallery"></div>
+                                <div class="craft-gallery" aria-label="3D modelling project gallery">{% include project-gallery.html category="3D modelling" %}</div>
                             </section>
 
                             <section class="craft-category" id="pottery" aria-labelledby="pottery-title">
@@ -65,7 +65,7 @@
                                     <h2 id="pottery-title">Pottery</h2>
                                     <a href="portfolio.html?category=Pottery">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="craft-gallery" data-project-gallery="Pottery" aria-label="Pottery project gallery"></div>
+                                <div class="craft-gallery" aria-label="Pottery project gallery">{% include project-gallery.html category="Pottery" %}</div>
                             </section>
 
                             <section class="craft-category" id="miscellaneous" aria-labelledby="miscellaneous-title">
@@ -73,7 +73,7 @@
                                     <h2 id="miscellaneous-title">Miscellaneous</h2>
                                     <a href="portfolio.html?category=Miscellaneous">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="craft-gallery" data-project-gallery="Miscellaneous" aria-label="Miscellaneous project gallery"></div>
+                                <div class="craft-gallery" aria-label="Miscellaneous project gallery">{% include project-gallery.html category="Miscellaneous" %}</div>
                             </section>
                         </div>
 
@@ -332,8 +332,6 @@
         </div>
     </div>
     <script src="assets/js/personal-info.js"></script>
-    <script src="assets/js/projects.js"></script>
-    <script src="assets/js/home-gallery.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/mode-switcher.js"></script>
 </body>

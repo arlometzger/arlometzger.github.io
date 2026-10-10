@@ -1,0 +1,17 @@
+---
+title: "Blog post title"
+date: 2026-10-06
+category: Workshop notes
+description: "A short summary shown on the blog listing."
+image: /assets/images/blog/post-slug/cover.jpg
+image_alt: "Describe what is visible in the post cover photo"
+author: Arlo Metzger
+---
+
+Write the post here using Markdown.
+
+## A section heading
+
+Add paragraphs, lists, and images using Markdown:
+
+![Describe the process photo](/assets/images/blog/post-slug/process-01.jpg)

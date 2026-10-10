@@ -1,0 +1,42 @@
+title: Arlo Metzger | Craft Portfolio
+description: Woodworking, machining, 3D modeling, pottery, and other handmade projects by Arlo Metzger.
+url: https://arlometzger.github.io
+markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /portfolio/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+      nav_section: portfolio
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav_section: blog
+      permalink: /blog/:title/
+
+exclude:
+  - .git/
+  - .github/
+  - .sass-cache/
+  - .venv/
+  - .vscode/
+  - _site/
+  - _site-verify/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - assets/images/blog/README.md
+  - assets/images/projects/README.md
+  - docs/content-templates/
+  - tests/
+  - scripts/

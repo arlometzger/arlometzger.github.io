@@ -106,6 +106,10 @@
       display: none;
     }
   }
+
+  #portfolio-filter-empty[hidden] {
+    display: none;
+  }
 }
 
 .portfolio-card__placeholder {
