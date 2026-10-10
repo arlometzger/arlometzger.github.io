@@ -10,3 +10,6 @@ gallery:
   - image: /assets/images/projects/laundry-cabinets/wide-2.jpeg
     alt: "A second view of the yellow laundry room cabinets and maple countertop"
 ---
+
+Optional: write a short project narrative here in Markdown. Leave the body
+empty if the photos and image description tell the story.
