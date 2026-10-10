@@ -12,7 +12,7 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
     <!-- cdn font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/css/main.css?v=20261009-1">
+    <link rel="stylesheet" href="assets/css/main.css?v=20261009-2">
 </head>
 <body>
     <!-- Main Wrapper   -->
@@ -41,8 +41,8 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
                         <div id="portfolio" aria-live="polite">
                             {% assign projects = site.projects | sort: "date" | reverse %}
                             {% for project in projects %}
-                            {% assign card_image = project.image | default: project.gallery.first.image %}
-                            {% assign card_image_alt = project.image_alt | default: project.gallery.first.alt | default: project.title %}
+                            {% assign card_image = project.image | default: project.sections.first.images.first.image %}
+                            {% assign card_image_alt = project.image_alt | default: project.sections.first.images.first.alt | default: project.title %}
                             <article class="portfolio-card" data-project-card data-category="{{ project.category | escape }}">
                                 <div class="portfolio-card__feature-image">
                                     <a href="{{ project.url | relative_url }}">

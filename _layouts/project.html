@@ -4,25 +4,30 @@ layout: default
 <article class="collection-detail collection-project">
     <header class="page-heading">
         <h1 class="page-title page-title--plain">{{ page.title | escape }}</h1>
+        {% if page.description %}
+        <p class="collection-detail__summary">{{ page.description | escape }}</p>
+        {% endif %}
     </header>
-    {% if page.gallery %}
-    <div class="project-gallery" aria-label="{{ page.title | escape }} project photos">
-        {% for photo in page.gallery %}
-        <figure class="project-gallery__item">
-            <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt | default: page.title | escape }}" loading="lazy">
-        </figure>
-        {% endfor %}
-    </div>
-    {% elsif page.image %}
-    <div class="project-gallery" aria-label="{{ page.title | escape }} project photos">
-        <figure class="project-gallery__item">
-            <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" loading="lazy">
-        </figure>
-    </div>
-    {% endif %}
-    {% if page.image_description %}
-    <p class="collection-detail__image-description">{{ page.image_description | escape }}</p>
-    {% endif %}
+    {% for section in page.sections %}
+    <section class="project-section">
+        {% if section.title %}
+        <h2 class="project-section__title">{{ section.title | escape }}</h2>
+        {% endif %}
+        <div class="project-gallery" aria-label="{{ page.title | escape }}{% if section.title %}: {{ section.title | escape }}{% else %} project photos{% endif %}">
+            {% for photo in section.images %}
+            <figure class="project-gallery__item">
+                <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt | default: page.title | escape }}" loading="lazy">
+                {% if photo.caption %}
+                <figcaption>{{ photo.caption | escape }}</figcaption>
+                {% endif %}
+            </figure>
+            {% endfor %}
+        </div>
+        {% if section.description %}
+        <p class="project-section__description">{{ section.description | escape }}</p>
+        {% endif %}
+    </section>
+    {% endfor %}
     {% if content != blank %}
     <div class="collection-detail__body collection-detail__narrative">
         {{ content }}

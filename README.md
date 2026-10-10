@@ -33,15 +33,17 @@ the shared layouts in `_layouts/`.
    Use a short, lowercase, hyphen-separated slug, such as
    `_projects/wooden-stool.md`.
 2. Fill in the front matter. `title`, `category`, `date`, `description`, and
-   `gallery` are expected. Add one `image` and descriptive `alt` for each
-   gallery photo. The first gallery image is used as the portfolio-card cover
-   and first homepage preview. `image_description` adds a caption below the
-   gallery.
+   `sections` are expected. `description` is the project summary shown under
+   the project-page title and in the portfolio card.
 3. Create `assets/images/projects/<slug>/` and add the cover and any detail
    photos there. Use optimized JPG or WebP for photos; descriptive filenames
    make them easier to maintain.
-4. Update the gallery image paths. Add an optional narrative below the front
-   matter as Markdown; leave it empty for a photo-only project page.
+4. Add one or more sections. Each section can have a `title`, a list of
+   `images`, and an optional `description` paragraph shown beneath that
+   section's gallery. Each image needs an `image` path and meaningful `alt`
+   text; `caption` is optional. Use sections such as `Finished project` and
+   `In progress` to group photos by stage. The first image in the first section
+   is used as the portfolio-card cover and first homepage preview.
 5. Build the site or preview it locally, then commit the Markdown and image
    files together.
 
@@ -52,6 +54,10 @@ work: `Woodworking`, `Machining`, `3D modelling`, `Pottery`, or
 at `/portfolio/wooden-stool/`; cards and home galleries link to it
 automatically. Gallery photos keep their original aspect ratios, fit inside
 responsive columns, and are not cropped.
+
+Do not repeat `image_description` fields: duplicate YAML keys are ambiguous
+and may overwrite each other. Use a section-level `description` under each
+gallery, or a per-image `caption` for a short caption.
 
 ## Add a blog post
 

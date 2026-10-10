@@ -65,6 +65,39 @@
   }
 }
 
+.collection-project {
+  .page-heading {
+    margin-bottom: 28px;
+  }
+
+  .page-title {
+    margin-bottom: 8px;
+  }
+
+  .collection-detail__summary {
+    margin: 0;
+  }
+}
+
+.project-section {
+  margin-bottom: 32px;
+
+  &__title {
+    margin: 0 0 14px;
+    color: #161616;
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  &__description {
+    max-width: 800px;
+    margin: 0;
+    color: #707070;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+}
+
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -75,6 +108,7 @@
   &__item {
     display: flex;
     min-width: 0;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
@@ -90,23 +124,28 @@
       max-height: min(58vh, 480px);
       object-fit: contain;
     }
+
+    figcaption {
+      align-self: stretch;
+      padding: 8px 12px;
+      color: #707070;
+      font-size: 13px;
+      line-height: 1.45;
+    }
   }
-}
-
-.collection-detail__image-description {
-  max-width: 800px;
-  margin: 0 0 18px;
-  color: #707070;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-body.dark-theme .collection-detail__image-description {
-  color: #a9a9a9;
 }
 
 .collection-detail__narrative {
   margin-top: 0;
+}
+
+body.dark-theme .project-section__title {
+  color: #f7f7f7;
+}
+
+body.dark-theme .project-section__description,
+body.dark-theme .project-gallery__item figcaption {
+  color: #a9a9a9;
 }
 
 body.dark-theme .collection-detail__body,

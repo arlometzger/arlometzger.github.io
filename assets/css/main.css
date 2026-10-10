@@ -1671,6 +1671,31 @@ body.dark-theme .main-bar .title-tab-wrapper .page-title--plain {
   font-size: 18px;
   line-height: 1.6;
 }
+.collection-project .page-heading {
+  margin-bottom: 28px;
+}
+.collection-project .page-title {
+  margin-bottom: 8px;
+}
+.collection-project .collection-detail__summary {
+  margin: 0;
+}
+.project-section {
+  margin-bottom: 32px;
+}
+.project-section__title {
+  margin: 0 0 14px;
+  color: #161616;
+  font-size: 22px;
+  line-height: 1.3;
+}
+.project-section__description {
+  max-width: 800px;
+  margin: 0;
+  color: #707070;
+  font-size: 16px;
+  line-height: 1.65;
+}
 .collection-detail__cover {
   margin: 0 0 20px;
 }
@@ -1691,6 +1716,7 @@ body.dark-theme .main-bar .title-tab-wrapper .page-title--plain {
 .project-gallery__item {
   display: flex;
   min-width: 0;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0;
@@ -1706,18 +1732,22 @@ body.dark-theme .main-bar .title-tab-wrapper .page-title--plain {
   max-height: min(58vh, 480px);
   object-fit: contain;
 }
-.collection-detail__image-description {
-  max-width: 800px;
-  margin: 0 0 18px;
+.project-gallery__item figcaption {
+  align-self: stretch;
+  padding: 8px 12px;
   color: #707070;
-  font-size: 15px;
-  line-height: 1.6;
-}
-body.dark-theme .collection-detail__image-description {
-  color: #a9a9a9;
+  font-size: 13px;
+  line-height: 1.45;
 }
 .collection-detail__narrative {
   margin-top: 0;
+}
+body.dark-theme .project-section__title {
+  color: #f7f7f7;
+}
+body.dark-theme .project-section__description,
+body.dark-theme .project-gallery__item figcaption {
+  color: #a9a9a9;
 }
 .collection-detail__meta {
   display: flex;
