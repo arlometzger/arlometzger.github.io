@@ -1,8 +1,10 @@
 {% assign gallery_projects = site.projects | where: "category", include.category | sort: "date" | reverse %}
 {% for project in gallery_projects limit: 3 %}
-    {% if project.image %}
+    {% assign gallery_image = project.image | default: project.gallery.first.image %}
+    {% assign gallery_image_alt = project.image_alt | default: project.gallery.first.alt | default: project.title %}
+    {% if gallery_image %}
     <a class="craft-gallery__item" href="{{ project.url | relative_url }}" aria-label="View {{ project.title | escape }}">
-        <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+        <img src="{{ gallery_image | relative_url }}" alt="{{ gallery_image_alt | escape }}" loading="lazy">
     </a>
     {% else %}
     <a class="craft-gallery__placeholder" href="{{ project.url | relative_url }}" aria-label="View {{ project.title | escape }}">

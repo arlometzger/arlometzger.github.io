@@ -12,7 +12,7 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
     <!-- cdn font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/css/main.css?v=20261006-17">
+    <link rel="stylesheet" href="assets/css/main.css?v=20261009-1">
 </head>
 <body>
     <!-- Main Wrapper   -->
@@ -27,7 +27,7 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
                     <div class="main-bar">
                         <div class="title-tab-wrapper">
                             <header class="page-heading">
-                                <h1 class="page-title">Portfolio</h1>
+                                <h1 class="page-title page-title--plain">Portfolio</h1>
                             </header>
                             <ul class="tab" id="portfolio-tab" aria-label="Filter projects by craft">
                                 <li><a class="tab-item" href="portfolio.html">All projects</a></li>
@@ -41,11 +41,13 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
                         <div id="portfolio" aria-live="polite">
                             {% assign projects = site.projects | sort: "date" | reverse %}
                             {% for project in projects %}
+                            {% assign card_image = project.image | default: project.gallery.first.image %}
+                            {% assign card_image_alt = project.image_alt | default: project.gallery.first.alt | default: project.title %}
                             <article class="portfolio-card" data-project-card data-category="{{ project.category | escape }}">
                                 <div class="portfolio-card__feature-image">
                                     <a href="{{ project.url | relative_url }}">
-                                        {% if project.image %}
-                                        <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+                                        {% if card_image %}
+                                        <img src="{{ card_image | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
                                         {% else %}
                                         <span class="portfolio-card__placeholder">Add a project photo</span>
                                         {% endif %}

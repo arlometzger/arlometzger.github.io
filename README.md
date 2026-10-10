@@ -33,21 +33,25 @@ the shared layouts in `_layouts/`.
    Use a short, lowercase, hyphen-separated slug, such as
    `_projects/wooden-stool.md`.
 2. Fill in the front matter. `title`, `category`, `date`, `description`, and
-   `image` are expected. `image_alt` should describe the cover photo.
+   `gallery` are expected. Add one `image` and descriptive `alt` for each
+   gallery photo. The first gallery image is used as the portfolio-card cover
+   and first homepage preview. `image_description` adds a caption below the
+   gallery.
 3. Create `assets/images/projects/<slug>/` and add the cover and any detail
    photos there. Use optimized JPG or WebP for photos; descriptive filenames
    make them easier to maintain.
-4. Update the image paths in the Markdown file, then write the story with
-   Markdown headings, paragraphs, lists, and images.
+4. Update the gallery image paths. Add an optional narrative below the front
+   matter as Markdown; leave it empty for a photo-only project page.
 5. Build the site or preview it locally, then commit the Markdown and image
    files together.
 
 Use one of these exact categories so the portfolio filters and home galleries
 work: `Woodworking`, `Machining`, `3D modelling`, `Pottery`, or
-`Miscellaneous`. Set the cover image path to a site-root path, for example
+`Miscellaneous`. Set each image path to a site-root path, for example
 `/assets/images/projects/wooden-stool/cover.jpg`. The project page is generated
 at `/portfolio/wooden-stool/`; cards and home galleries link to it
-automatically.
+automatically. Gallery photos keep their original aspect ratios, fit inside
+responsive columns, and are not cropped.
 
 ## Add a blog post
 

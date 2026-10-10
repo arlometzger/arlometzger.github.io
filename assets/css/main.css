@@ -50,6 +50,11 @@ img {
   -webkit-text-stroke: 0.025em #0063f7;
   text-shadow: 0.075em 0.075em 0 #0063f7;
 }
+.page-title--plain {
+  color: #161616;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
 .page-eyebrow {
   margin-bottom: 8px;
   color: #0063f7;
@@ -217,6 +222,9 @@ body.dark-theme .institution-info p {
 
 body.dark-theme .page-title {
   color: #fff;
+}
+body.dark-theme .page-title--plain {
+  color: #F7F7F7;
 }
 body.dark-theme .page-heading h1 {
   color: #fff;
@@ -745,7 +753,7 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
 }
 
 .portfolio-card {
-  padding: 32px;
+  padding: 18px;
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
   border-radius: 5px;
@@ -764,42 +772,46 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   }
 }
 .portfolio-card__feature-image {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .portfolio-card__feature-image a {
   display: block;
 }
 .portfolio-card__feature-image a img {
   width: 100%;
-  height: 250px;
+  height: 190px;
   border-radius: 5px;
   object-fit: cover;
 }
 .portfolio-card__meta {
-  margin-bottom: 16px;
+  margin: 0 0 6px;
   display: inline-block;
-  padding: 8px 16px;
+  padding: 4px 8px;
   border-radius: 5px;
-}
-.portfolio-card__meta p {
-  font-size: 14px;
-  line-height: 24px;
   color: #707070;
+  font-size: 13px;
+  line-height: 18px;
 }
 .portfolio-card__title a {
   font-weight: bold;
-  font-size: 24px;
-  line-height: 27px;
+  font-size: 20px;
+  line-height: 1.25;
   letter-spacing: -0.02em;
   color: #161616;
-  margin-bottom: 40px;
+}
+.portfolio-card__title {
+  margin: 0 0 6px;
 }
 .portfolio-card__short-desc {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 1.5;
   letter-spacing: -0.001em;
   color: #707070;
-  margin-bottom: 16px;
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .portfolio-card__author {
   font-size: 14px;
@@ -1424,6 +1436,14 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   -webkit-text-stroke: 0.025em #0063f7;
   text-shadow: 0.075em 0.075em 0 #0063f7;
 }
+.main-bar .title-tab-wrapper .page-title--plain {
+  color: #161616;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+body.dark-theme .main-bar .title-tab-wrapper .page-title--plain {
+  color: #f7f7f7;
+}
 @media (max-width: 767px) {
   .main-bar .title-tab-wrapper {
     flex-direction: column;
@@ -1463,13 +1483,13 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
 .main-bar #portfolio {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 45px;
+  grid-gap: 24px;
   margin-bottom: 64px;
 }
 @media (max-width: 767px) {
   .main-bar #portfolio {
     grid-template-columns: 1fr;
-    grid-gap: 20px;
+    grid-gap: 16px;
   }
 }
 .main-bar #portfolioTabImages {
@@ -1661,6 +1681,44 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   border-radius: 8px;
   object-fit: cover;
 }
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  align-items: start;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.project-gallery__item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f4f4f4;
+}
+.project-gallery__item img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(58vh, 480px);
+  object-fit: contain;
+}
+.collection-detail__image-description {
+  max-width: 800px;
+  margin: 0 0 18px;
+  color: #707070;
+  font-size: 15px;
+  line-height: 1.6;
+}
+body.dark-theme .collection-detail__image-description {
+  color: #a9a9a9;
+}
+.collection-detail__narrative {
+  margin-top: 0;
+}
 .collection-detail__meta {
   display: flex;
   flex-wrap: wrap;
@@ -1701,6 +1759,9 @@ body.dark-theme .collection-detail__body,
 body.dark-theme .collection-detail__body h2,
 body.dark-theme .collection-detail__body h3 {
   color: #f7f7f7;
+}
+body.dark-theme .project-gallery__item {
+  background: #202020;
 }
 .contact {
   background-color: #f7f7f7;

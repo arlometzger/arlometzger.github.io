@@ -3,7 +3,7 @@ layout: default
 ---
 <article class="collection-detail collection-post">
     <header class="page-heading">
-        <h1 class="page-title">{{ page.title | escape }}</h1>
+        <h1 class="page-title page-title--plain">{{ page.title | escape }}</h1>
         {% if page.description %}
         <p class="collection-detail__summary">{{ page.description | escape }}</p>
         {% endif %}

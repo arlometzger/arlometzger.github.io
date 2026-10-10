@@ -3,22 +3,30 @@ layout: default
 ---
 <article class="collection-detail collection-project">
     <header class="page-heading">
-        <h1 class="page-title">{{ page.title | escape }}</h1>
-        {% if page.description %}
-        <p class="collection-detail__summary">{{ page.description | escape }}</p>
-        {% endif %}
+        <h1 class="page-title page-title--plain">{{ page.title | escape }}</h1>
     </header>
-    {% if page.image %}
-    <figure class="collection-detail__cover">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">
-    </figure>
-    {% endif %}
-    <div class="collection-detail__meta">
-        {% if page.category %}<span>{{ page.category | escape }}</span>{% endif %}
-        {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% endif %}
+    {% if page.gallery %}
+    <div class="project-gallery" aria-label="{{ page.title | escape }} project photos">
+        {% for photo in page.gallery %}
+        <figure class="project-gallery__item">
+            <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt | default: page.title | escape }}" loading="lazy">
+        </figure>
+        {% endfor %}
     </div>
-    <div class="collection-detail__body">
+    {% elsif page.image %}
+    <div class="project-gallery" aria-label="{{ page.title | escape }} project photos">
+        <figure class="project-gallery__item">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" loading="lazy">
+        </figure>
+    </div>
+    {% endif %}
+    {% if page.image_description %}
+    <p class="collection-detail__image-description">{{ page.image_description | escape }}</p>
+    {% endif %}
+    {% if content != blank %}
+    <div class="collection-detail__body collection-detail__narrative">
         {{ content }}
     </div>
+    {% endif %}
     <p class="collection-detail__back"><a href="{{ '/portfolio.html' | relative_url }}">Back to all projects</a></p>
 </article>

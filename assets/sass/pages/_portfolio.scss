@@ -1,4 +1,13 @@
 .main-bar {
+  .title-tab-wrapper .page-title--plain {
+    color: #161616;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
+  body.dark-theme & .title-tab-wrapper .page-title--plain {
+    color: #f7f7f7;
+  }
+
   .title-tab-wrapper {
     display: flex;
     justify-content: space-between;
@@ -44,11 +53,11 @@
   #portfolio {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 45px;
+    grid-gap: 24px;
     margin-bottom: 64px;
     @include max(767px) {
       grid-template-columns: 1fr;
-      grid-gap: 20px;
+      grid-gap: 16px;
     }
   }
   #portfolioTabImages {

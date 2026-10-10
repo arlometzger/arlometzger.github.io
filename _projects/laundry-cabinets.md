@@ -3,16 +3,10 @@ title: "Laundry Room Cabinets"
 category: Woodworking
 date: 2026-10-06
 description: "Custom made laundry room cabinets in a vibrant yellow 1950s cottage style, plus a solid maple countertop"
-image: assets/images/projects/laundry-cabinets/wide-1.jpeg
-image_alt: "Laundry Room Cabinets"
+image_description: "A pair of views showing the custom yellow cabinets and solid maple countertop in the laundry room."
+gallery:
+  - image: /assets/images/projects/laundry-cabinets/wide-1.jpeg
+    alt: "Yellow laundry room cabinets and a maple countertop, viewed from the doorway"
+  - image: /assets/images/projects/laundry-cabinets/wide-2.jpeg
+    alt: "A second view of the yellow laundry room cabinets and maple countertop"
 ---
-
-Write the project story here using Markdown.
-
-## Process
-
-Describe the materials, tools, decisions, and steps involved.
-
-Add more project photos like this:
-
-![Laundry Room Cabinets](/assets/images/projects/laundry-cabinets/wide-2.jpeg)
