@@ -7,14 +7,14 @@ sections:
   - title: "Finished project"
     description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/project-slug/cover.jpg
+      -       image: /assets/images/projects/woodworking/project-slug/cover.jpg
         alt: "Describe what is visible in the cover photo"
         caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/project-slug/detail-01.jpg
+      -       image: /assets/images/projects/woodworking/project-slug/detail-01.jpg
         alt: "Describe what is visible in the detail photo"
   - title: "In progress"
     images:
-      - image: /assets/images/projects/project-slug/process-01.jpg
+      -       image: /assets/images/projects/woodworking/project-slug/process-01.jpg
         alt: "Describe what is happening in this process photo"
 ---
 

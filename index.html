@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Woodworking, machining, 3D modeling, pottery, and other handmade projects by Arlo Metzger.">
+    <meta name="description" content="Woodworking, machining, 3D modelling, pottery, graphic design, hand engraving, and other handmade projects by Arlo Metzger.">
     <title>Arlo Metzger | Craft Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
@@ -22,7 +22,7 @@
                     <main class="main-bar craft-home">
                         <header class="craft-home__hero">
                             <h1>I like to make things.</h1>
-                            <p>Woodworking, Machining, 3D Modelling, and More.</p>
+                            <p>Woodworking, machining, 3D modelling, pottery, graphic design, hand engraving, and more.</p>
                             <a class="craft-home__about-link" href="about.html">About me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </header>
 
@@ -66,6 +66,22 @@
                                     <a href="portfolio.html?category=Pottery">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                                 <div class="craft-gallery" aria-label="Pottery project gallery">{% include project-gallery.html category="Pottery" %}</div>
+                            </section>
+
+                            <section class="craft-category" id="graphic-design" aria-labelledby="graphic-design-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="graphic-design-title">Graphic Design</h2>
+                                    <a href="portfolio.html?category=Graphic%20Design">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="craft-gallery" aria-label="Graphic Design project gallery">{% include project-gallery.html category="Graphic Design" %}</div>
+                            </section>
+
+                            <section class="craft-category" id="hand-engraving" aria-labelledby="hand-engraving-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="hand-engraving-title">Hand Engraving</h2>
+                                    <a href="portfolio.html?category=Hand%20Engraving">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="craft-gallery" aria-label="Hand Engraving project gallery">{% include project-gallery.html category="Hand Engraving" %}</div>
                             </section>
 
                             <section class="craft-category" id="miscellaneous" aria-labelledby="miscellaneous-title">

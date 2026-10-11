@@ -29,15 +29,17 @@ the shared layouts in `_layouts/`.
 
 ## Add a project
 
-1. Copy `docs/content-templates/project.md.example` to `_projects/<slug>.md`.
-   Use a short, lowercase, hyphen-separated slug, such as
-   `_projects/wooden-stool.md`.
+1. Copy `docs/content-templates/project.md.example` into the matching
+   category folder in `_projects/`, such as
+   `_projects/woodworking/wooden-stool.md`. Use a short, lowercase,
+   hyphen-separated slug for the filename.
 2. Fill in the front matter. `title`, `category`, `date`, `description`, and
    `sections` are expected. `description` is the project summary shown under
    the project-page title and in the portfolio card.
-3. Create `assets/images/projects/<slug>/` and add the cover and any detail
-   photos there. Use optimized JPG or WebP for photos; descriptive filenames
-   make them easier to maintain.
+3. Add the cover and any detail photos to the matching craft/project folder
+   under `assets/images/projects/`, such as
+   `assets/images/projects/woodworking/wooden-stool/`. Use optimized JPG or
+   WebP for photos; descriptive filenames make them easier to maintain.
 4. Add one or more sections. Each section can have a `title`, a list of
    `images`, and an optional `description` paragraph shown beneath that
    section's gallery. Each image needs an `image` path and meaningful `alt`
@@ -48,12 +50,19 @@ the shared layouts in `_layouts/`.
    files together.
 
 Use one of these exact categories so the portfolio filters and home galleries
-work: `Woodworking`, `Machining`, `3D modelling`, `Pottery`, or
-`Miscellaneous`. Set each image path to a site-root path, for example
-`/assets/images/projects/wooden-stool/cover.jpg`. The project page is generated
-at `/portfolio/wooden-stool/`; cards and home galleries link to it
-automatically. Gallery photos keep their original aspect ratios, fit inside
-responsive columns, and are not cropped.
+work: `Woodworking`, `Machining`, `3D modelling`, `Pottery`, `Graphic Design`,
+`Hand Engraving`, or `Miscellaneous`. Set each image path to a site-root path,
+for example `/assets/images/projects/woodworking/wooden-stool/cover.jpg`. The
+project page is generated at `/portfolio/wooden-stool/`; cards and home
+galleries link to it automatically. Gallery photos keep their original aspect
+ratios, fit inside responsive columns, and are not cropped.
+
+The category folder names for both `_projects/` and
+`assets/images/projects/` are `woodworking`, `machining`, `3d-modelling`,
+`pottery`, `graphic-design`, `hand-engraving`, and `miscellaneous`,
+respectively. Within each craft folder, name the Markdown file and image folder
+with the same project slug, such as `_projects/woodworking/wooden-stool.md`
+and `assets/images/projects/woodworking/wooden-stool/`.
 
 Do not repeat `image_description` fields: duplicate YAML keys are ambiguous
 and may overwrite each other. Use a section-level `description` under each
