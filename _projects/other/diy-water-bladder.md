@@ -2,7 +2,7 @@
 title: "DIY Water Bladder"
 category: Other
 date: 2026-10-06
-order: 50
+order: 30
 description: "A reusable water bladder with custom-made fittings and mouthpiece."
 sections:
   - title: "Finished project"

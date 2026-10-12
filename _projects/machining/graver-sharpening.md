@@ -2,7 +2,7 @@
 title: "Graver Sharpening Tools"
 category: Machining
 date: 2026-10-06
-order: 23
+order: 30
 description: "A custom holder and template system for shaping and sharpening gravers."
 sections:
   - title: "Finished project"

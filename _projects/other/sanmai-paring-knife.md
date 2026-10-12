@@ -2,7 +2,7 @@
 title: "San Mai Paring Knife"
 category: Machining
 date: 2026-10-06
-order: 24
+order: 10
 description: "A hand-forged paring knife with a san mai blade, integrated bolster, and mahogany handle scales"
 sections:
   - title: "Finished project"

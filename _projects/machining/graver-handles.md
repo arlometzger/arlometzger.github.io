@@ -2,17 +2,17 @@
 title: "Graver Handles"
 category: Machining
 date: 2026-10-06
-order: 22
+order: 20
 description: "Handmade handles for palm gravers and hammer-and-chisel engraving tools."
 sections:
   - 
     images:
-      - image: /assets/images/projects/machining/graver-handles/hammer--chisel-graver.jpg
-        alt: "Finished hammer-and-chisel graver with a custom handle"
       - image: /assets/images/projects/machining/graver-handles/palm-graver-1.jpeg
         alt: "First finished palm graver with a custom handle"
       - image: /assets/images/projects/machining/graver-handles/palm-graver-2.jpeg
         alt: "Second finished palm graver with a custom handle"
+      - image: /assets/images/projects/machining/graver-handles/hammer--chisel-graver.jpg
+        alt: "Finished hammer-and-chisel graver with a custom handle"
         image: /assets/images/projects/machining/graver-sharpening/graver-holder.jpeg
         alt: "Custom holder for gravers"
         caption: "Machined graver holder, featuring a set screw to lock the graver in place."

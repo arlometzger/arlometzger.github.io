@@ -2,7 +2,7 @@
 title: "Engraver Ball Vise"
 category: Machining
 date: 2026-10-06
-order: 20
+order: 10
 description: "A custom-machined ball vise and accessories built for hand engraving."
 sections:
   - 

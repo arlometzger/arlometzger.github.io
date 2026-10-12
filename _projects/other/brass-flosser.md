@@ -2,7 +2,7 @@
 title: "Brass Flosser"
 category: Other
 date: 2026-10-12
-order: 51
+order: 20
 description: "A small brass flosser prototype with a fitted lid."
 sections:
     images:

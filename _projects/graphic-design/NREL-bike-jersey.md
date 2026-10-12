@@ -2,7 +2,7 @@
 title: "NREL Bike Jersey"
 category: Graphic Design
 date: 2025-06-01
-order: 40
+order: 10
 description: "A graphic design for the National Renewable Energy Laboratory's BikeMS team jersey"
 sections:
   - 
