@@ -14,7 +14,7 @@ sections:
         alt: "Top view of the engraved scrollwork on the Al-Mar Talon"
       - image: /assets/images/projects/hand-engraving/engraved-almar-talon/tesha-3-4.jpeg
         alt: "Three-quarter view of the knife engraved with Tesha's name"
-  - title: "In progress"
+  - title: "Process"
     description: "A separate Spyderco knife I'm working on which shows similar early process stages as the Al-Mar."
     images:
       - image: /assets/images/projects/hand-engraving/engraved-almar-talon/spyderco-process-print.jpeg
