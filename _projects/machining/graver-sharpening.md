@@ -1,25 +1,21 @@
 ---
-title: "Project title"
+title: "Graver Sharpening Tools"
 category: Machining
 date: 2026-10-06
-description: "A short summary for the portfolio card and search results."
+description: "A custom holder and template system for shaping and sharpening gravers."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/machining/graver-sharpening/cover.jpg
-        alt: "Describe what is visible in the cover photo"
-        caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/machining/graver-sharpening/detail-01.jpg
-        alt: "Describe what is visible in the detail photo"
+      - image: /assets/images/projects/machining/graver-sharpening/graver-holder.jpeg
+        alt: "Custom holder for positioning a graver during sharpening"
+      - image: /assets/images/projects/machining/graver-sharpening/template-3-4.jpeg
+        alt: "Three-quarter view of the graver sharpening template"
+      - image: /assets/images/projects/machining/graver-sharpening/template-side-profile.jpeg
+        alt: "Side profile of the graver sharpening template"
   - title: "In progress"
     images:
-      - image: /assets/images/projects/machining/graver-sharpening/process-01.jpg
-        alt: "Describe what is happening in this process photo"
+      - image: /assets/images/projects/machining/graver-sharpening/sharpening-action.jpeg
+        alt: "Graver being sharpened using the custom setup"
+      - image: /assets/images/projects/machining/graver-sharpening/template-designs.png
+        alt: "Design drawings for the graver sharpening templates"
 ---
-
-The first image in the first section is used as the portfolio-card cover and
-homepage preview. Add or remove sections and images as needed. The project
-description above is shown under the project title and on the portfolio card.
-
-Optional: add a longer project narrative below the front matter in Markdown.

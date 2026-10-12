@@ -1,25 +1,27 @@
 ---
-title: "Project title"
+title: "CD Storage Case"
 category: Woodworking
 date: 2026-10-06
-description: "A short summary for the portfolio card and search results."
+description: "A custom wooden case designed to store and display a CD collection."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/woodworking/cd-case/cover.jpg
-        alt: "Describe what is visible in the cover photo"
-        caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/woodworking/cd-case/detail-01.jpg
-        alt: "Describe what is visible in the detail photo"
+      - image: /assets/images/projects/woodworking/cd-case/finished-3-4.jpeg
+        alt: "Three-quarter view of the finished wooden CD storage case"
+      - image: /assets/images/projects/woodworking/cd-case/finished-empty.jpeg
+        alt: "Finished CD case shown empty"
+      - image: /assets/images/projects/woodworking/cd-case/finished-front.jpeg
+        alt: "Front view of the finished wooden CD storage case"
   - title: "In progress"
     images:
-      - image: /assets/images/projects/woodworking/cd-case/process-01.jpg
-        alt: "Describe what is happening in this process photo"
+      - image: /assets/images/projects/woodworking/cd-case/faceframing.jpeg
+        alt: "Applying the face frame to the CD storage case"
+      - image: /assets/images/projects/woodworking/cd-case/glue-up.jpeg
+        alt: "CD case components during glue-up"
+      - image: /assets/images/projects/woodworking/cd-case/jig-1.JPEG
+        alt: "First jig used in building the CD case"
+      - image: /assets/images/projects/woodworking/cd-case/jig-2-tablesaw.JPEG
+        alt: "Table saw jig used to cut CD case parts"
+      - image: /assets/images/projects/woodworking/cd-case/jig-3-tablesaw.JPEG
+        alt: "Second table saw jig used to cut CD case parts"
 ---
-
-The first image in the first section is used as the portfolio-card cover and
-homepage preview. Add or remove sections and images as needed. The project
-description above is shown under the project title and on the portfolio card.
-
-Optional: add a longer project narrative below the front matter in Markdown.

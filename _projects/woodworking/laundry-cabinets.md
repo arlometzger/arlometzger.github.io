@@ -11,6 +11,10 @@ sections:
         alt: "Yellow laundry room cabinets and a maple countertop, viewed from the doorway"
       - image: /assets/images/projects/woodworking/laundry-cabinets/wide-2.jpeg
         alt: "A second view of the yellow laundry room cabinets and maple countertop"
+  - title: "In progress"
+    images:
+      - image: /assets/images/projects/woodworking/laundry-cabinets/installation.jpeg
+        alt: "Installing the custom laundry room cabinets"
 ---
 
 Optional: write a longer project narrative here in Markdown.

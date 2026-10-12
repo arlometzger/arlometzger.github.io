@@ -1,25 +1,19 @@
 ---
-title: "Project title"
+title: "Graver Handles"
 category: Machining
 date: 2026-10-06
-description: "A short summary for the portfolio card and search results."
+description: "Handmade handles for palm gravers and hammer-and-chisel engraving tools."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/machining/graver-handles/cover.jpg
-        alt: "Describe what is visible in the cover photo"
-        caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/machining/graver-handles/detail-01.jpg
-        alt: "Describe what is visible in the detail photo"
+      - image: /assets/images/projects/machining/graver-handles/hammer--chisel-graver.jpg
+        alt: "Finished hammer-and-chisel graver with a custom handle"
+      - image: /assets/images/projects/machining/graver-handles/palm-graver-1.jpeg
+        alt: "First finished palm graver with a custom handle"
+      - image: /assets/images/projects/machining/graver-handles/palm-graver-2.jpeg
+        alt: "Second finished palm graver with a custom handle"
   - title: "In progress"
     images:
-      - image: /assets/images/projects/machining/graver-handles/process-01.jpg
-        alt: "Describe what is happening in this process photo"
+      - image: /assets/images/projects/machining/graver-handles/handle-turning.jpeg
+        alt: "Turning a custom graver handle on a lathe"
 ---
-
-The first image in the first section is used as the portfolio-card cover and
-homepage preview. Add or remove sections and images as needed. The project
-description above is shown under the project title and on the portfolio card.
-
-Optional: add a longer project narrative below the front matter in Markdown.

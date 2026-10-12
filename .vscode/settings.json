@@ -4,5 +4,9 @@
         "titleBar.activeBackground": "#3F3E4F",
         "titleBar.activeForeground": "#FAFAFB"
     },
+    "path-intellisense.absolutePathToWorkspace": true,
+    "path-intellisense.mappings": {
+        "/": "${workspaceFolder}"
+    },
     "liveServer.settings.port": 5501
 }

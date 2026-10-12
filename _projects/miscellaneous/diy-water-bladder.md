@@ -1,25 +1,19 @@
 ---
-title: "Project title"
+title: "DIY Water Bladder"
 category: Miscellaneous
 date: 2026-10-06
-description: "A short summary for the portfolio card and search results."
+description: "A reusable water bladder with custom-made fittings and mouthpiece."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/miscellaneous/diy-water-bladder/cover.jpg
-        alt: "Describe what is visible in the cover photo"
-        caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/miscellaneous/diy-water-bladder/detail-01.jpg
-        alt: "Describe what is visible in the detail photo"
+      - image: /assets/images/projects/miscellaneous/diy-water-bladder/finished.jpeg
+        alt: "Finished DIY water bladder"
+      - image: /assets/images/projects/miscellaneous/diy-water-bladder/mouthpiece.jpeg
+        alt: "Close view of the water bladder mouthpiece"
   - title: "In progress"
     images:
-      - image: /assets/images/projects/miscellaneous/diy-water-bladder/process-01.jpg
-        alt: "Describe what is happening in this process photo"
+      - image: /assets/images/projects/miscellaneous/diy-water-bladder/bulkhead-1.jpeg
+        alt: "First view of the custom water bladder bulkhead fitting"
+      - image: /assets/images/projects/miscellaneous/diy-water-bladder/bulkhead-2.jpeg
+        alt: "Second view of the custom water bladder bulkhead fitting"
 ---
-
-The first image in the first section is used as the portfolio-card cover and
-homepage preview. Add or remove sections and images as needed. The project
-description above is shown under the project title and on the portfolio card.
-
-Optional: add a longer project narrative below the front matter in Markdown.

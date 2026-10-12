@@ -1,25 +1,11 @@
 ---
-title: "Project title"
+title: "San Mai Paring Knife"
 category: Machining
 date: 2026-10-06
-description: "A short summary for the portfolio card and search results."
+description: "A finished san mai paring knife."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/machining/sanmai-paring-knife/cover.jpg
-        alt: "Describe what is visible in the cover photo"
-        caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/machining/sanmai-paring-knife/detail-01.jpg
-        alt: "Describe what is visible in the detail photo"
-  - title: "In progress"
-    images:
-      - image: /assets/images/projects/machining/sanmai-paring-knife/process-01.jpg
-        alt: "Describe what is happening in this process photo"
+      - image: /assets/images/projects/machining/sanmai-paring-knife/finished.png
+        alt: "Finished san mai paring knife"
 ---
-
-The first image in the first section is used as the portfolio-card cover and
-homepage preview. Add or remove sections and images as needed. The project
-description above is shown under the project title and on the portfolio card.
-
-Optional: add a longer project narrative below the front matter in Markdown.

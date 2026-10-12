@@ -10,9 +10,9 @@ JavaScript, and published to GitHub Pages.
 | `_config.yml` | Jekyll collections, permalinks, and site metadata |
 | `_includes/` | Shared Liquid snippets, including the sidebar and project galleries |
 | `_layouts/` | Reusable page shells for projects and blog posts |
-| `_projects/` | One Markdown document per portfolio project |
+| `_projects/<craft>/` | Markdown documents grouped by project category |
 | `_posts/` | One dated Markdown document per blog post |
-| `assets/images/projects/<slug>/` | Cover and detail photos for a project |
+| `assets/images/projects/<craft>/<slug>/` | Cover and detail photos for a project |
 | `assets/images/blog/<slug>/` | Cover and in-article photos for a post |
 | `assets/images/icon/` | Shared icons |
 | `assets/images/img/` | Existing site/profile images |

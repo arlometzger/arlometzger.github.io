@@ -1,25 +1,45 @@
 ---
-title: "Project title"
+title: "Engraver Ball Vise"
 category: Machining
 date: 2026-10-06
-description: "A short summary for the portfolio card and search results."
+description: "A custom-machined ball vise and accessories built for hand engraving."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
     images:
-      - image: /assets/images/projects/machining/engraver-ball-vise/cover.jpg
-        alt: "Describe what is visible in the cover photo"
-        caption: "Optional caption displayed underneath this photo."
-      - image: /assets/images/projects/machining/engraver-ball-vise/detail-01.jpg
-        alt: "Describe what is visible in the detail photo"
+      - image: /assets/images/projects/machining/engraver-ball-vise/finished-1.png
+        alt: "Finished custom engraver ball vise"
+      - image: /assets/images/projects/machining/engraver-ball-vise/finished-2.jpg
+        alt: "Second view of the finished engraver ball vise"
+      - image: /assets/images/projects/machining/engraver-ball-vise/ball-3-polished.jpeg
+        alt: "Polished ball component for the engraver vise"
   - title: "In progress"
     images:
-      - image: /assets/images/projects/machining/engraver-ball-vise/process-01.jpg
-        alt: "Describe what is happening in this process photo"
+      - image: /assets/images/projects/machining/engraver-ball-vise/angle-cutting.png
+        alt: "Cutting an angled feature during ball vise construction"
+      - image: /assets/images/projects/machining/engraver-ball-vise/ball-1.jpeg
+        alt: "Ball vise component during machining"
+      - image: /assets/images/projects/machining/engraver-ball-vise/ball-2.jpeg
+        alt: "Ball vise component before polishing"
+      - image: /assets/images/projects/machining/engraver-ball-vise/baseplate-schematic.jpg
+        alt: "Schematic for the ball vise base plate"
+      - image: /assets/images/projects/machining/engraver-ball-vise/drivebolt-and-driver-detail.jpeg
+        alt: "Close detail of the drive bolt and driver"
+      - image: /assets/images/projects/machining/engraver-ball-vise/drivebolt-and-driver.jpeg
+        alt: "Drive bolt and driver components"
+      - image: /assets/images/projects/machining/engraver-ball-vise/drivebolt-files.jpeg
+        alt: "Filing the ball vise drive bolt"
+      - image: /assets/images/projects/machining/engraver-ball-vise/drivebolt-schematic.jpg
+        alt: "Schematic for the ball vise drive bolt"
+      - image: /assets/images/projects/machining/engraver-ball-vise/jaws-process.jpeg
+        alt: "Ball vise jaws during fabrication"
+      - image: /assets/images/projects/machining/engraver-ball-vise/jaws-schematic.jpg
+        alt: "Schematic for the ball vise jaws"
+      - image: /assets/images/projects/machining/engraver-ball-vise/swivel-bushing-schematic.jpg
+        alt: "Schematic for the swivel bushing"
+      - image: /assets/images/projects/machining/engraver-ball-vise/t-slot-process.jpeg
+        alt: "Machining a T-slot in the ball vise"
+      - image: /assets/images/projects/machining/engraver-ball-vise/test-piece-1.jpeg
+        alt: "First test piece made during ball vise construction"
+      - image: /assets/images/projects/machining/engraver-ball-vise/test-piece-2.jpeg
+        alt: "Second test piece made during ball vise construction"
 ---
-
-The first image in the first section is used as the portfolio-card cover and
-homepage preview. Add or remove sections and images as needed. The project
-description above is shown under the project title and on the portfolio card.
-
-Optional: add a longer project narrative below the front matter in Markdown.
