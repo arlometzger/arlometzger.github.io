@@ -1,5 +1,5 @@
 ---
-title: "Engraver Ball Vise"
+title: "Hand Engraving Ball Vise"
 category: Machining
 date: 2026-10-06
 order: 10
