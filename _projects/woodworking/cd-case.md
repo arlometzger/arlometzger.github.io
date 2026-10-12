@@ -25,7 +25,7 @@ sections:
         alt: "Applying the face frame to the CD storage case"
         caption: "Empty CD case with all 720 popsicle sticks inserted, prior to finishing."
 
-  - title: "In progress"
+  - title: "Indexed table saw jig"
     description: "I used the same style of jig that's used to make finger joints to make hundreds of shallow, evenly-spaced kerf cuts into my plywood pieces (these pieces form the vertical columns in which CDs are 'stacked'). The jig features an aluminum indexing rail and slides across the table saw bed. The process involves sliding the jig to make a cut, sliding the piece of wood over so that indexing rail fits into the newly made cut, and making another cut. Repeat over and over and over again." 
     images:
       - image: /assets/images/projects/woodworking/cd-case/jig-1.JPEG

@@ -9,11 +9,13 @@ sections:
     images:
       - image: /assets/images/projects/other/speaker-refoaming/closeup.jpeg
         alt: "Close view of the repaired speaker surround"
+        caption: "Clamping everything together with clothespins."
       - image: /assets/images/projects/other/speaker-refoaming/tone-test.jpeg
         alt: "Speaker during a tone test after refoaming"
-        caption: "testing the alignment of the speaker cone with a 40 Hz test tone"
+        caption: "Testing the alignment of the speaker cone with a 40 Hz test tone as the glue dries."
       - image: /assets/images/projects/other/speaker-refoaming/finished.jpeg
         alt: "Speaker after the refoaming repair"
+        caption: "The repaired speakers in their new home."
   - title: "In progress"
     images:
       - image: /assets/images/projects/other/speaker-refoaming/broken.jpeg
