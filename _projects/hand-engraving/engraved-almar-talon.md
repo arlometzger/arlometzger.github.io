@@ -6,6 +6,7 @@ order: 20
 description: "Bone handle pocket knife with engraved steel bolsters, featuring scrollwork on one side and the giftee's name on the other"
 sections:
   - 
+    description: "I engraved this pocket knife as a birthday present for my girlfriend. It features scrollwork I designed on one side, and her name written in her 'childhood handwriting' on the other. I engraved it using the kit of engraving tools I built, including a ball vise, gravers, and a hammer and chisel handle with a quick-change design for fitting different graver profiles. This was my first experiment with background shading, and I think my tools and techniques could use some work."
     images:
       - image: /assets/images/projects/hand-engraving/engraved-almar-talon/scrollwork-3-4.jpeg
         alt: "Three-quarter view of the Al-Mar Talon with engraved scrollwork"
@@ -14,6 +15,7 @@ sections:
       - image: /assets/images/projects/hand-engraving/engraved-almar-talon/tesha-3-4.jpeg
         alt: "Three-quarter view of the knife engraved with Tesha's name"
   - title: "In progress"
+    description: "A separate Spyderco knife I'm working on which shows similar early process stages as the Al-Mar."
     images:
       - image: /assets/images/projects/hand-engraving/engraved-almar-talon/spyderco-process-print.jpeg
         alt: "Printed engraving layout prepared for transfer to a knife"
@@ -21,4 +23,3 @@ sections:
         alt: "Knife secured in a ball vise with the scrollwork layout in progress"
 ---
 
-I engraved this pocket knife as a birthday present for my girlfriend. It features scrollwork I designed on one side, and her name written in her "childhood handwriting" on the other. I engraved it using the kit of engraving tools I built, including a ball vise, gravers, and a hammer and chisel handle with a quick-change design for fitting different graver profiles. This was my first experiment with background shading, and I think my tools and techniques could use some work.
