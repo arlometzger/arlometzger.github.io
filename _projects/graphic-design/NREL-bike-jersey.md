@@ -2,6 +2,7 @@
 title: "NREL Bike Jersey"
 category: Graphic Design
 date: 2026-10-06
+order: 40
 description: "A graphic design for a cycling jersey, shown on a bike rack and in use."
 sections:
   - title: "Finished project"

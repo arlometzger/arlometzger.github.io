@@ -2,6 +2,7 @@
 title: "Hand Engraved Pocket Knife (Al-Mar Talon)"
 category: Hand Engraving
 date: 2025-07-29
+order: 30
 description: "Bone handle pocket knife with engraved steel bolsters, featuring scrollwork on one side and the giftee's name (in her childhood handwriting) on the other"
 sections:
   - title: "Finished"

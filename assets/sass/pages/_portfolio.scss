@@ -1,10 +1,12 @@
 .main-bar {
-  .title-tab-wrapper .page-title--plain {
+  padding: 20px 16px;
+
+  .title-tab-wrapper .page-title {
     color: #161616;
     -webkit-text-stroke: 0;
     text-shadow: none;
   }
-  body.dark-theme & .title-tab-wrapper .page-title--plain {
+  body.dark-theme & .title-tab-wrapper .page-title {
     color: #f7f7f7;
   }
 
@@ -53,11 +55,11 @@
   #portfolio {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 24px;
-    margin-bottom: 64px;
+    grid-gap: 14px;
+    margin-bottom: 32px;
     @include max(767px) {
       grid-template-columns: 1fr;
-      grid-gap: 16px;
+      grid-gap: 10px;
     }
   }
   #portfolioTabImages {

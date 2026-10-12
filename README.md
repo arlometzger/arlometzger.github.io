@@ -33,9 +33,12 @@ the shared layouts in `_layouts/`.
    category folder in `_projects/`, such as
    `_projects/woodworking/wooden-stool.md`. Use a short, lowercase,
    hyphen-separated slug for the filename.
-2. Fill in the front matter. `title`, `category`, `date`, `description`, and
-   `sections` are expected. `description` is the project summary shown under
-   the project-page title and in the portfolio card.
+2. Fill in the front matter. `title`, `category`, `date`, `order`,
+   `description`, and `sections` are expected. `order` is a number used to
+   position projects on the homepage and portfolio; lower numbers appear
+   first. Give each visible project a unique value and leave gaps (10, 20, 30)
+   to make later insertions easy. `description` is the project summary shown
+   under the project-page title and in the portfolio card.
 3. Add the cover and any detail photos to the matching craft/project folder
    under `assets/images/projects/`, such as
    `assets/images/projects/woodworking/wooden-stool/`. Use optimized JPG or
@@ -49,20 +52,26 @@ the shared layouts in `_layouts/`.
 5. Build the site or preview it locally, then commit the Markdown and image
    files together.
 
-Use one of these exact categories so the portfolio filters and home galleries
-work: `Woodworking`, `Machining`, `3D modelling`, `Pottery`, `Graphic Design`,
-`Hand Engraving`, or `Miscellaneous`. Set each image path to a site-root path,
+Use one of these visible categories so the portfolio filters and home galleries
+work: `Woodworking`, `Machining`, `Hand Engraving`, `Graphic Design`, or
+`Other`. `Pottery` and `3D modelling` remain available as categories for future
+use, but are currently hidden from the homepage and portfolio filters. Set each
+image path to a site-root path,
 for example `/assets/images/projects/woodworking/wooden-stool/cover.jpg`. The
 project page is generated at `/portfolio/wooden-stool/`; cards and home
 galleries link to it automatically. Gallery photos keep their original aspect
 ratios, fit inside responsive columns, and are not cropped.
 
 The category folder names for both `_projects/` and
-`assets/images/projects/` are `woodworking`, `machining`, `3d-modelling`,
-`pottery`, `graphic-design`, `hand-engraving`, and `miscellaneous`,
-respectively. Within each craft folder, name the Markdown file and image folder
+`assets/images/projects/` are `woodworking`, `machining`, `hand-engraving`,
+`graphic-design`, `other`, `pottery`, and `3d-modelling`, respectively. Within
+each craft folder, name the Markdown file and image folder
 with the same project slug, such as `_projects/woodworking/wooden-stool.md`
 and `assets/images/projects/woodworking/wooden-stool/`.
+
+Projects without a cover image (the first image in the first section) are
+temporarily hidden from the homepage and portfolio. Add a real image to make a
+project visible.
 
 Do not repeat `image_description` fields: duplicate YAML keys are ambiguous
 and may overwrite each other. Use a section-level `description` under each

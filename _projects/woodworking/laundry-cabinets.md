@@ -2,6 +2,7 @@
 title: "Laundry Room Cabinets"
 category: Woodworking
 date: 2026-10-06
+order: 11
 description: "Custom made laundry room cabinets in a vibrant yellow 1950s cottage style, plus a solid maple countertop"
 sections:
   - title: "Finished project"

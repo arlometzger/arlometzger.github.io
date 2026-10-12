@@ -2,6 +2,7 @@
 title: "Graver Handles"
 category: Machining
 date: 2026-10-06
+order: 22
 description: "Handmade handles for palm gravers and hammer-and-chisel engraving tools."
 sections:
   - title: "Finished project"

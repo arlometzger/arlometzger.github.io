@@ -1,6 +1,6 @@
 ---
 title: Portfolio
-description: Browse woodworking, machining, 3D modeling, pottery, and other craft projects by Arlo Metzger.
+description: Browse woodworking, machining, hand engraving, graphic design, and other craft projects by Arlo Metzger.
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
     <!-- cdn font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/css/main.css?v=20261009-2">
+    <link rel="stylesheet" href="assets/css/main.css?v=20261012-1">
 </head>
 <body>
     <!-- Main Wrapper   -->
@@ -33,34 +33,28 @@ description: Browse woodworking, machining, 3D modeling, pottery, and other craf
                                 <li><a class="tab-item" href="portfolio.html">All projects</a></li>
                                 <li><a class="tab-item" href="portfolio.html?category=Woodworking">Woodworking</a></li>
                                 <li><a class="tab-item" href="portfolio.html?category=Machining">Machining</a></li>
-                                <li><a class="tab-item" href="portfolio.html?category=3D%20modelling">3D modelling</a></li>
-                                <li><a class="tab-item" href="portfolio.html?category=Pottery">Pottery</a></li>
-                                <li><a class="tab-item" href="portfolio.html?category=Graphic%20Design">Graphic Design</a></li>
                                 <li><a class="tab-item" href="portfolio.html?category=Hand%20Engraving">Hand Engraving</a></li>
-                                <li><a class="tab-item" href="portfolio.html?category=Miscellaneous">Miscellaneous</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=Graphic%20Design">Graphic Design</a></li>
+                                <li><a class="tab-item" href="portfolio.html?category=Other">Other</a></li>
                             </ul>
                         </div>
                         <div id="portfolio" aria-live="polite">
-                            {% assign projects = site.projects | sort: "date" | reverse %}
+                            {% assign projects = site.projects | sort: "order" %}
                             {% for project in projects %}
                             {% assign card_image = project.image | default: project.sections.first.images.first.image %}
                             {% assign card_image_alt = project.image_alt | default: project.sections.first.images.first.alt | default: project.title %}
+                            {% if card_image %}
                             <article class="portfolio-card" data-project-card data-category="{{ project.category | escape }}">
                                 <div class="portfolio-card__feature-image">
                                     <a href="{{ project.url | relative_url }}">
-                                        {% if card_image %}
                                         <img src="{{ card_image | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
-                                        {% else %}
-                                        <span class="portfolio-card__placeholder">Add a project photo</span>
-                                        {% endif %}
                                     </a>
                                 </div>
                                 <p class="portfolio-card__meta">{{ project.category | escape }}</p>
                                 <h2 class="portfolio-card__title"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h2>
                                 {% if project.description %}<p class="portfolio-card__short-desc">{{ project.description | escape }}</p>{% endif %}
                             </article>
-                            {% else %}
-                            <p class="portfolio-empty-state">No projects yet. Copy the project template into <code>_projects/</code> to add one.</p>
+                            {% endif %}
                             {% endfor %}
                         </div>
                         <p id="portfolio-filter-empty" class="portfolio-empty-state" hidden></p>

@@ -2,6 +2,7 @@
 title: "Espresso Machine Accessories"
 category: Machining
 date: 2026-10-06
+order: 21
 description: "A machined espresso tamper and a prototype dosing funnel."
 sections:
   - title: "Finished project"

@@ -2,6 +2,7 @@
 title: "Hand Engraved Zippo Lighter"
 category: Hand Engraving
 date: 2024-10-27
+order: 31
 description: "My first engraving project. A brass Zippo lighter for my brother's birthday"
 sections:
   - title: "Finished"

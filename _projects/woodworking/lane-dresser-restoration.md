@@ -2,6 +2,7 @@
 title: "Lane Dresser Restoration"
 category: Woodworking
 date: 2026-10-12
+order: 13
 description: "Restoration of a Lane dresser, shown before and after the work."
 sections:
   - title: "Finished"

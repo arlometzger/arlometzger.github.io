@@ -2,6 +2,7 @@
 title: "CD Storage Case"
 category: Woodworking
 date: 2026-10-06
+order: 12
 description: "A custom wooden case designed to store and display a CD collection."
 sections:
   - title: "Finished project"
