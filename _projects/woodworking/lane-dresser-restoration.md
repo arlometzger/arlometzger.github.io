@@ -11,7 +11,7 @@ sections:
         alt: "Restored Lane dresser viewed from the front"
       - image: /assets/images/projects/woodworking/lane-dresser-restoration/finished-2.jpeg
         alt: "Second view of the restored Lane dresser"
-  - title: "In progress"
+  - title: "A the store"
     images:
       - image: /assets/images/projects/woodworking/lane-dresser-restoration/in-store.jpeg
         alt: "Lane dresser before restoration, photographed in the store"

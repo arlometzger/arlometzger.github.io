@@ -31,7 +31,7 @@
   }
 
   &__body {
-    max-width: 800px;
+    max-width: none;
     color: #404040;
     font-size: 17px;
     line-height: 1.75;
@@ -90,7 +90,7 @@
   }
 
   &__description {
-    max-width: 800px;
+    max-width: none;
     margin: 0;
     color: #707070;
     font-size: 16px;

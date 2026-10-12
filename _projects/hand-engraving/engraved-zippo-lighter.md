@@ -6,6 +6,7 @@ order: 10
 description: "My first engraving project. A brass Zippo lighter for my brother's birthday"
 sections:
   - 
+    description: "After finishing my ball vise and gravers, I was eager to start diving into the craft of hand engraving. I was quickly overwhelmed by the bottomless rabbit holes of tools, techniques, scroll styles, lettering, and the overall learning curve. I chose this 'beginner' project as a starting point. It features fairly simple scrollwork and was a good introduction to engraving calligraphy. My technique is far from perfect, but I was happy with the result."
     images:
       - image: /assets/images/projects/hand-engraving/engraved-zippo-lighter/finished-1.jpeg
         alt: "Front view of the hand-engraved Zippo lighter"
@@ -25,4 +26,3 @@ sections:
         alt: "Another stage of the Zippo lighter engraving process"
 ---
 
-After finishing my ball vise and gravers, I was eager to start diving into the craft of hand engraving. I was quickly overwhelmed by the bottomless rabbit holes of tools, techniques, scroll styles, lettering, and the overall learning curve. I chose this "beginner" project as a starting point. It features fairly simple scrollwork and was a good introduction to engraving calligraphy. My technique is far from perfect, but I was happy with the result.

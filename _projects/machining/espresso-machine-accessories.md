@@ -3,14 +3,24 @@ title: "Espresso Machine Accessories"
 category: Machining
 date: 2026-10-06
 order: 40
-description: "A machined espresso tamper and a prototype dosing funnel."
+description: "Accessories for my (not-so-expensive) espresso hobby"
 sections:
-  - title: "Finished project"
+  - 
     images:
       - image: /assets/images/projects/machining/espresso-machine-accessories/tamper.jpeg
         alt: "Machined espresso tamper with a turned wooden handle"
-  - title: "In progress"
+        caption: "Steel espresso tamper machined on the lathe, with a hand-turned mahogany handle."
+      - image: /assets/images/projects/machining/espresso-machine-accessories/tray.jpeg
+        alt: "Custom breville bambino espresso drip tray"
+        caption: "3D printer drip tray with decorative metal top cut out from an outdoor table."
+      - image: /assets/images/projects/machining/espresso-machine-accessories/funnel-on-basket.jpeg
+        alt:  "Espresso dosing funnel"
+        caption: "Machined nylon dosing funnel. eliminates coffee overflow and mess during distribution."
+      - image: /assets/images/projects/machining/espresso-machine-accessories/funnel-under.jpeg
+        alt: "Espresso dosing funnel"
+        caption: "Underside of the dosing funnel. Has a retention ring keeps it in place and makes a satisfying snap when pushed onto the basket."
+  - 
     images:
       - image: /assets/images/projects/machining/espresso-machine-accessories/funnel-prototype.jpeg
-        alt: "Prototype espresso dosing funnel"
+        alt: "V1 of the espresso dosing funnel, made when I didn't have access to a lathe."
 ---
