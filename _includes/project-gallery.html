@@ -3,7 +3,7 @@
 {% for project in gallery_projects %}
     {% assign gallery_image = project.image | default: project.sections.first.images.first.image %}
     {% assign gallery_image_alt = project.image_alt | default: project.sections.first.images.first.alt | default: project.title %}
-    {% if gallery_image and gallery_count < 3 %}
+    {% if gallery_image and gallery_count < 4 %}
     <a class="craft-gallery__item" href="{{ project.url | relative_url }}" aria-label="View {{ project.title | escape }}">
         <img src="{{ gallery_image | relative_url }}" alt="{{ gallery_image_alt | escape }}" loading="lazy">
     </a>

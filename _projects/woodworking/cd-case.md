@@ -20,7 +20,7 @@ sections:
     images:
       - image: /assets/images/projects/woodworking/cd-case/glue-up.jpeg
         alt: "CD case components during glue-up"
-        caption: "I used actual CD cases shimmed with watercolor paper to glue up the cabinet. The paper added just enough width for the CDs to slide in and out smoothly.
+        caption: "I used actual CD cases shimmed with watercolor paper to glue up the cabinet. The paper added just enough width for the CDs to slide in and out smoothly."
       - image: /assets/images/projects/woodworking/cd-case/faceframing.jpeg
         alt: "Applying the face frame to the CD storage case"
         caption: "Empty CD case with all popsicle sticks inserted, prior to finishing."

@@ -6,7 +6,7 @@ order: 40
 description: "Step Stool made from live edge Oak slab and Rubberwood chair legs"
 sections:
   - title: "Finished project"
-    description: "I made this stool using traditional joinery techniques and materials that were already available to me. I found the Oak slab in a friend's garage, and salvaged the legs from a dining chair I thought my housemates wouldn't miss. The stool features live edge Oak steps, Rubberwood legsm mahogany wedged tenons, hand-turned/filed stretchers, and a warm walnut oil finish.
+    description: "I made this stool using traditional joinery techniques and materials that were already available to me. I found the Oak slab in a friend's garage, and salvaged the legs from a dining chair I thought my housemates wouldn't miss. The stool features live edge Oak steps, Rubberwood legs, mahogany wedged tenons, hand-turned/filed stretchers, and a warm walnut oil finish."
     images:
       - image: /assets/images/projects/woodworking/wooden-stool/3-4-view.jpeg
         alt: "Three-quarter view of the step stool"
