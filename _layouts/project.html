@@ -24,7 +24,7 @@ layout: default
             {% endfor %}
         </div>
         {% if section.description %}
-        <p class="project-section__description">{{ section.description | escape }}</p>
+        <div class="project-section__description">{{ section.description | markdownify }}</div>
         {% endif %}
     </section>
     {% endfor %}

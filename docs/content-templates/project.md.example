@@ -6,7 +6,10 @@ order: 10
 description: "A short summary for the portfolio card and search results."
 sections:
   - title: "Finished project"
-    description: "Optional paragraph displayed underneath this image gallery."
+    description: |-
+      Optional paragraph displayed underneath this image gallery.
+
+      Add a blank line to start a second paragraph.
     images:
       -       image: /assets/images/projects/woodworking/project-slug/cover.jpg
         alt: "Describe what is visible in the cover photo"

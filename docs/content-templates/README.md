@@ -10,4 +10,8 @@ Project `order` values control the display order on the homepage and portfolio;
 lower numbers appear first. Projects without a cover image are hidden from
 those listings until a gallery image is added.
 
+For separate paragraphs in a section description, use a YAML literal block
+(`|-`) and leave a blank line between paragraphs. The project layout renders
+these as separate paragraphs.
+
 The `.example` files are templates only and are excluded from the Jekyll build.

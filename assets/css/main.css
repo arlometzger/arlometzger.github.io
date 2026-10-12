@@ -1705,6 +1705,12 @@ body.dark-theme .main-bar .title-tab-wrapper .page-title {
   font-size: 16px;
   line-height: 1.65;
 }
+.project-section__description p {
+  margin: 0;
+}
+.project-section__description p + p {
+  margin-top: 1em;
+}
 .collection-detail__cover {
   margin: 0 0 20px;
 }
