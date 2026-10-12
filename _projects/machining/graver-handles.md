@@ -10,11 +10,9 @@ sections:
       'Hammer & Chisel' and 'Hand Push' are the two main styles of engraving.
       Lacking any experience or preference, I decided to make handles for both.
 
-
       My designs feature a quick-change graver collet, which can hold both round
       and square gravers with a set screw and corresponding sleeve. The only
       difference between the two is the wooden handle.
-
 
       The hand-push handle features a wide surface that fits into the palm, which
       is pushed by hand to make cuts with the graver. The hammer-and-chisel handle
