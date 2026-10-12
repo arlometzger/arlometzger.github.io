@@ -6,7 +6,7 @@ order: 10
 description: "I built this CD case out of 3/4'' plywood, pine face framing, and 720 popsicle sticks."
 sections:
   - 
-    description: "I was desparate to find a better storage solution than my big plastic bin of 400 CDs. I especially wanted to display the CDs horizontally, so the text on the spine could easily be read. I came up with the idea to make a modular bracket insert system that could turn a normal shelf into horizontal CD storage, which eventually became this: indexed horizontal slits with popsicle sticks inserted to form 360 individual CD shelves."
+    description: "I was desparate to find a better storage solution than my big plastic bin of 500 CDs. I especially wanted to display the CDs horizontally, so the text on the spine could easily be read. I came up with the idea to make a modular bracket insert system that could turn a normal shelf into horizontal CD storage (still working on this), but branched off into this idea instead: horizontal, evenly spaced slits with popsicle sticks inserted to form 360 individual CD shelves."
     images:
       - image: /assets/images/projects/woodworking/cd-case/finished-front.jpeg
         alt: "Front view of the finished wooden CD storage case"
@@ -20,10 +20,10 @@ sections:
     images:
       - image: /assets/images/projects/woodworking/cd-case/glue-up.jpeg
         alt: "CD case components during glue-up"
-        caption: "I used actual CD cases shimmed with watercolor paper to glue up the cabinet. The paper added just enough width for the CDs to slide in and out smoothly."
+        caption: "I used actual CD cases shimmed with watercolor paper to glue up the cabinet. The paper added just enough width for the CDs to slide in and out smoothly after it was removed."
       - image: /assets/images/projects/woodworking/cd-case/faceframing.jpeg
         alt: "Applying the face frame to the CD storage case"
-        caption: "Empty CD case with all popsicle sticks inserted, prior to finishing."
+        caption: "Empty CD case with all 720 popsicle sticks inserted, prior to finishing."
 
   - title: "In progress"
     description: "I used the same style of jig that's used to make finger joints to make hundreds of shallow, evenly-spaced kerf cuts into my plywood pieces (these pieces form the vertical columns in which CDs are 'stacked'). The jig features an aluminum indexing rail and slides across the table saw bed. The process involves sliding the jig to make a cut, sliding the piece of wood over so that indexing rail fits into the newly made cut, and making another cut. Repeat over and over and over again." 
