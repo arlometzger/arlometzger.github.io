@@ -2,7 +2,7 @@
 title: "CD Storage Case"
 category: Woodworking
 date: 2026-10-06
-order: 12
+order: 10
 description: "I built this CD case out of 3/4'' plywood, pine face framing, and popsicle sticks."
 sections:
   - 

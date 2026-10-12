@@ -2,7 +2,7 @@
 title: "Wooden Step Stool"
 category: Woodworking
 date: 2026-02-22
-order: 10
+order: 40
 description: "Step Stool made from live edge Oak slab and Rubberwood chair legs"
 sections:
   - title: "Finished project"

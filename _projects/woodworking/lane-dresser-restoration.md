@@ -2,7 +2,7 @@
 title: "Lane Dresser Restoration"
 category: Woodworking
 date: 2026-10-12
-order: 13
+order: 30
 description: "Restoration of a 1972 MCM Lane dresser"
 sections:
   - 
