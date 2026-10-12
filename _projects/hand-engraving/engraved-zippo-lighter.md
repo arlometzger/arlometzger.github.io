@@ -5,7 +5,7 @@ date: 2024-10-27
 order: 31
 description: "My first engraving project. A brass Zippo lighter for my brother's birthday"
 sections:
-  - title: "Finished"
+  - 
     images:
       - image: /assets/images/projects/hand-engraving/engraved-zippo-lighter/finished-1.jpeg
         alt: "Front view of the hand-engraved Zippo lighter"
