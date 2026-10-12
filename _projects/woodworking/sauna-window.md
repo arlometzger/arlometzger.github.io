@@ -2,7 +2,7 @@
 title: "Sauna Window"
 category: Woodworking
 date: 2026-10-12
-order: 40
+order: 50
 description: "A custom wood-framed window for a sauna, shown in the shop and installed."
 sections:
   - title: "Finished"
