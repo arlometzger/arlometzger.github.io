@@ -400,8 +400,8 @@ body.dark-theme .contact-title p:not(.page-eyebrow) {
   }
 }
 .sidebar-profile__image {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   margin: 0 auto 16px;
 }

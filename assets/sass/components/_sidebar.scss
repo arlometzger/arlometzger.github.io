@@ -20,8 +20,8 @@
             margin: 2px;
         }
         &__image{
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             
             @include max(991px){
                 width: 32px;
