@@ -1,6 +1,6 @@
 window.personalInfo = {
     name: "Arlo Metzger",
-    designation: "Woodworking, machining & more",
+    designation: "Professional User of Free Time",
     phone: "(718) 316-0360",
     email: "arlometzger1@gmail.com",
     socialMedia: {
