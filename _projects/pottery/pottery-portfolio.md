@@ -2,6 +2,7 @@
 title: "Assorted Wheel Thrown Items"
 category: Pottery
 date: 2026-10-06
+order: 1
 description: "An assortment of mugs, vases, bowls, soap dispensers, and other pots made over the years."
 sections:
   - title: "Mugs"

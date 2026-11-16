@@ -22,7 +22,7 @@
                     <main class="main-bar craft-home">
                         <header class="craft-home__hero">
                             <h1>I like to make things.</h1>
-                            <p>Woodworking, machining, hand engraving, graphic design, and more.</p>
+                            <p>Pottery, woodworking, machining, hand engraving, graphic design, and more.</p>
                             <a class="craft-home__about-link" href="about.html">About me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </header>
 
@@ -36,6 +36,14 @@
                         </div>
 
                         <div class="craft-categories">
+                            <section class="craft-category" id="pottery" aria-labelledby="pottery-title">
+                                <div class="craft-category__heading">
+                                    <h2 id="pottery-title">Pottery</h2>
+                                    <a href="portfolio.html?category=Pottery">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="craft-gallery" aria-label="Pottery project gallery">{% include project-gallery.html category="Pottery" %}</div>
+                            </section>
+
                             <section class="craft-category" id="woodworking" aria-labelledby="woodworking-title">
                                 <div class="craft-category__heading">
                                     <h2 id="woodworking-title">Woodworking</h2>

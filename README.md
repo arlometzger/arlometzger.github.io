@@ -53,10 +53,10 @@ the shared layouts in `_layouts/`.
    files together.
 
 Use one of these visible categories so the portfolio filters and home galleries
-work: `Woodworking`, `Machining`, `Hand Engraving`, `Graphic Design`, or
-`Other`. `Pottery` and `3D modelling` remain available as categories for future
-use, but are currently hidden from the homepage and portfolio filters. Set each
-image path to a site-root path,
+work: `Pottery`, `Woodworking`, `Machining`, `Hand Engraving`, `Graphic Design`,
+or `Other`. `3D modelling` remains available as a category for future use, but
+is currently hidden from the homepage and portfolio filters. Set each image
+path to a site-root path,
 for example `/assets/images/projects/woodworking/wooden-stool/cover.jpg`. The
 project page is generated at `/portfolio/wooden-stool/`; cards and home
 galleries link to it automatically. Gallery photos keep their original aspect
